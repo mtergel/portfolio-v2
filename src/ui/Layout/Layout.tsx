@@ -19,10 +19,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   width={36}
                   height={36}
                 />
-                <span className="font-medium text-2xl">Tergel</span>
+                <span className="font-medium text-2xl tracking-tighter">
+                  Tergel
+                </span>
               </a>
             </Link>
-
             <HamburgerMenu />
           </div>
         </Container>

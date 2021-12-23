@@ -25,4 +25,8 @@ img.emoji {
 @import "../components/HamburgerMenu/hamburger.scss";
 @import "../components/Container/container.scss";
 
+.r-icon {
+  @apply h-5 w-5;
+}
+
 @tailwind utilities;
