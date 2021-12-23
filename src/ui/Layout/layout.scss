@@ -1,0 +1,4 @@
+.top-bar {
+  @apply absolute top-0 left-0 w-full z-50 pointer-events-none transition-colors;
+  margin-top: env(safe-area-inset-top);
+}

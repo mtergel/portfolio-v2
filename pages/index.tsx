@@ -1,7 +1,8 @@
 import Twemoji from "@/components/Twemoji/Twemoji";
-import type { NextPage } from "next";
+import Layout from "@/ui/Layout/Layout";
+import { NextPageWithLayout } from "@/utils/types";
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <div>
       <p>
@@ -15,4 +16,7 @@ const Home: NextPage = () => {
   );
 };
 
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
 export default Home;

@@ -1,0 +1,6 @@
+.container-base {
+  @apply w-full m-0;
+
+  padding-right: calc(env(safe-area-inset-right) + 1rem);
+  padding-left: calc(env(safe-area-inset-left) + 1rem);
+}

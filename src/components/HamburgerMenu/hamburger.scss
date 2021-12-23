@@ -1,0 +1,14 @@
+.hamburger {
+  padding: 0.6875rem;
+
+  & span {
+    @apply block bg-current;
+    width: 1.625rem;
+    height: 0.125rem;
+    margin: 0.3125rem 0;
+    transform-origin: 45% 50%;
+
+    @apply transition-transform duration-300;
+    @apply transition-opacity duration-150;
+  }
+}
