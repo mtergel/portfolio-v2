@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         sans: ["Circular Std Book"],
       },
+      transitionTimingFunction: {
+        "nav-backdrop": "cubic-bezier(.83,0,.17,1)",
+      },
     },
   },
   plugins: [],

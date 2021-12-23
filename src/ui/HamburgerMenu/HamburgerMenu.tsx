@@ -31,7 +31,14 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
       <Portal.Root containerRef={containerRef}>
         <div className={clsx("nav-container", open && "pointer-events-auto")}>
           <div className={overlayCx} />
-          <div></div>
+          <div className={contenxtCx}>
+            <div className="nav-inner-backdrop" />
+            <nav className="nav-inner">
+              <div>SMOKING</div>
+              <div>ON</div>
+              <div>TOP FIVES.</div>
+            </nav>
+          </div>
         </div>
       </Portal.Root>
       {/* <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
@@ -47,9 +54,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
               <DialogPrimitive.Title className="sr-only">
                 Navigation
               </DialogPrimitive.Title>
-              <div>SMOKING</div>
-              <div>ON</div>
-              <div>TOP FIVES.</div>
+         
             </nav>
           </DialogPrimitive.Content>
         </DialogPrimitive.Portal>

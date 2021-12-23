@@ -12,4 +12,16 @@
 
 .nav-content {
   @apply fixed inset-0 transform-none;
+
+  & .nav-inner-backdrop {
+    @apply absolute top-0 left-0 w-full h-screen origin-right transition-transform ease-nav-backdrop duration-500;
+    @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+    @apply scale-x-0;
+  }
+
+  &.nav-content-open {
+    & .nav-inner-backdrop {
+      @apply scale-x-100;
+    }
+  }
 }
