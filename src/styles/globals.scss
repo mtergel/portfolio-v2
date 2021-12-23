@@ -1,3 +1,23 @@
+@import "./fonts.scss";
+
 @tailwind base;
+
+html {
+  @apply h-full;
+}
+
+body {
+  @apply bg-black text-white h-full;
+}
+
+div#__next {
+  @apply h-full;
+}
+
+img.emoji {
+  @apply h-6 w-6 inline-block;
+  margin: 0 0.05em 0 0.1em;
+}
+
 @tailwind components;
 @tailwind utilities;
