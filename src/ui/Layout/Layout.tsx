@@ -67,7 +67,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </Container>
       </header>
-      <main className="pt-28 min-h-screen flex-grow">{children}</main>
+      <main className="min-h-screen flex-grow">{children}</main>
       <footer className="border-t border-t-gray-700 border-opacity-80 pt-8 pb-6">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

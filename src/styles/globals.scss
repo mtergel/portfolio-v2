@@ -31,4 +31,8 @@ img.emoji {
   @apply h-5 w-5;
 }
 
+::selection {
+  @apply bg-rose-300 text-white;
+}
+
 @tailwind utilities;

@@ -7,13 +7,13 @@ import { NextPageWithLayout } from "@/utils/types";
 const Home: NextPageWithLayout = () => {
   return (
     <>
-      <Container>
+      <Container className="h-[calc(100vh-88px)] flex flex-col justify-center">
         <p>
           Hi there <Twemoji emoji="👋" />, I&apos;m
         </p>
         <h1 className="text-6xl mb-4 font-black text-green-300">Tergel.</h1>
         <p>
-          Front end developer <Twemoji emoji="👨‍💻" />
+          Front end developer <Twemoji emoji="👨‍💻" /> based in Mongolia.
         </p>
       </Container>
       <div className="flex items-center justify-center h-screen w-screen relative overflow-hidden">
