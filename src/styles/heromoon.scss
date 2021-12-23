@@ -1,0 +1,59 @@
+.card1,
+.card2,
+.card3,
+.card4,
+.card5,
+.card6,
+.card7,
+.card8 {
+  @apply absolute rounded bg-cover bg-center bg-no-repeat will-change-transform;
+}
+
+.card1 {
+  @apply bg-contain w-64 h-64;
+
+  background-image: url(/assets/parallax/moon.svg);
+}
+
+.card2 {
+  @apply bg-contain opacity-60 w-48 h-48;
+  background-image: url(/assets/parallax/cloud.svg);
+}
+
+.card3 {
+  @apply bg-contain opacity-70 w-48 h-48;
+  background-image: url(/assets/parallax/cloud1.svg);
+}
+
+.card4 {
+  @apply w-96 h-56;
+  background-image: url(/assets/parallax/star.svg);
+}
+
+.card5 {
+  @apply bg-contain opacity-80 w-48 h-48;
+  background-image: url(/assets/parallax/cloud2.svg);
+}
+
+.card6 {
+  @apply bg-contain w-56 h-56;
+  background-image: url(/assets/parallax/water-waves-left.svg);
+}
+
+.card7 {
+  @apply bg-contain w-56 h-56;
+  background-image: url(/assets/parallax/moonlight.svg);
+}
+
+.card8 {
+  @apply bg-contain w-56 h-56;
+  background-image: url(/assets/parallax/water-waves-right.svg);
+}
+
+.hero-card-container {
+  @apply absolute top-0 right-0 left-full md:left-1/2 h-full flex items-center justify-center;
+}
+
+.hero-card {
+  @apply w-full h-full flex items-center justify-center relative;
+}
