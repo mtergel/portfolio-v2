@@ -2,3 +2,27 @@
   @apply absolute top-0 left-0 w-full z-50 transition-colors;
   margin-top: env(safe-area-inset-top);
 }
+
+.nav-links {
+  @apply flex text-lg tracking-tighter items-center gap-4 animate-slideDownAndFade;
+
+  & li {
+    & a {
+      @apply transition-colors relative;
+
+      &::before {
+        content: "";
+        @apply block absolute top-full w-2 h-2 left-1/2 mt-2 rounded-full bg-current -translate-x-1/2 opacity-0 transition-opacity;
+      }
+
+      &:hover,
+      &:focus {
+        @apply text-green-300;
+
+        &::before {
+          @apply opacity-60;
+        }
+      }
+    }
+  }
+}
