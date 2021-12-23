@@ -25,9 +25,14 @@ img.emoji {
 @import "../components/HamburgerButton/hamburger.scss";
 @import "../components/Container/container.scss";
 @import "../ui/HamburgerMenu/hamburgermenu.scss";
+@import "../ui/ProjectDeck/projectdeck.scss";
 
 .r-icon {
   @apply h-5 w-5;
+}
+
+::selection {
+  @apply bg-rose-300 text-white;
 }
 
 @tailwind utilities;

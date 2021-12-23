@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { width, ref } = useResizeDetector();
 
   return (
-    <div className="flex flex-col w-full h-full" ref={ref}>
+    <div className="flex flex-col" ref={ref}>
       <header className="top-bar">
         <Container id="nav-container" ref={containerRef}>
           <div className="flex items-center justify-between relative py-5 z-40">
@@ -67,7 +67,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </Container>
       </header>
-      <main className="pt-28 min-h-screen flex-grow">{children}</main>
+      <main className="min-h-screen flex-grow">{children}</main>
       <footer className="border-t border-t-gray-700 border-opacity-80 pt-8 pb-6">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

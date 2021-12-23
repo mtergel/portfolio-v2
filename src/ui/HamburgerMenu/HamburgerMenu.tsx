@@ -101,7 +101,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      GITHUB
+                      Github
                     </a>
                   </li>
                   <li>
@@ -110,7 +110,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      LINKED IN
+                      LinkedIn
                     </a>
                   </li>
                 </ul>
