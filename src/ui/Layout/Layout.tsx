@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { width, ref } = useResizeDetector();
 
   return (
-    <div className="flex flex-col w-full h-full" ref={ref}>
+    <div className="flex flex-col" ref={ref}>
       <header className="top-bar">
         <Container id="nav-container" ref={containerRef}>
           <div className="flex items-center justify-between relative py-5 z-40">

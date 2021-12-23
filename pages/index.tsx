@@ -1,6 +1,7 @@
 import Container from "@/components/Container/Container";
 import Twemoji from "@/components/Twemoji/Twemoji";
 import Layout from "@/ui/Layout/Layout";
+import ProjectDeck from "@/ui/ProjectDeck/ProjectDeck";
 import { NextPageWithLayout } from "@/utils/types";
 
 const Home: NextPageWithLayout = () => {
@@ -15,6 +16,9 @@ const Home: NextPageWithLayout = () => {
           Front end developer <Twemoji emoji="👨‍💻" />
         </p>
       </Container>
+      <div className="flex items-center justify-center h-screen w-screen relative overflow-hidden">
+        <ProjectDeck />
+      </div>
     </>
   );
 };

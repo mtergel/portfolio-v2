@@ -1,0 +1,10 @@
+.card-container {
+  @apply h-full w-full flex items-center justify-center absolute will-change-transform;
+}
+
+.card {
+  @apply h-[570px] w-[300px] bg-white bg-no-repeat bg-center rounded-lg will-change-transform touch-none;
+  background-size: auto 85%;
+  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
+    0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
