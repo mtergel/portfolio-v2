@@ -59,6 +59,14 @@
 
         & li {
           @apply translate-x-0;
+
+          & a {
+            @apply transition-colors;
+            &:hover,
+            &:focus {
+              @apply text-green-300;
+            }
+          }
         }
       }
     }

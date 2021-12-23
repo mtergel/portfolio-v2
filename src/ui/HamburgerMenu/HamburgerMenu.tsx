@@ -3,7 +3,7 @@ import HamburgerButton from "@/components/HamburgerButton/HamburgerButton";
 import * as Portal from "@radix-ui/react-portal";
 import clsx from "clsx";
 import Link from "next/link";
-import { RefObject, useEffect, useState } from "react";
+import React, { RefObject, useEffect, useState } from "react";
 
 interface HamburgerMenuProps {
   containerRef: RefObject<HTMLDivElement>;
@@ -42,6 +42,19 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
     setOpen((prev) => !prev);
   };
 
+  const handleKeydown = (evt: KeyboardEvent) => {
+    if (evt.key === "Escape") setOpen(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeydown);
+
+    return () => {
+      // Detach listener when component unmounts
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  }, []);
+
   useEffect(() => {
     open
       ? document.body.classList.add("overflow-hidden")
@@ -69,6 +82,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
             <div className="nav-inner-backdrop" />
             <Container className="nav-inner">
               <nav className="flex items-center flex-grow pt-24">
+                {/* TODO: MAKE THIS KEYBOARD SUPPORT TABBALE + ARROW KEYS */}
                 <ul className="nav-inner-list">
                   {links.map((i) => (
                     <li key={i.link}>
