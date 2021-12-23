@@ -1,11 +1,35 @@
+import Container from "@/components/Container/Container";
 import HamburgerButton from "@/components/HamburgerButton/HamburgerButton";
 import * as Portal from "@radix-ui/react-portal";
 import clsx from "clsx";
-import { RefObject, useState } from "react";
+import Link from "next/link";
+import { RefObject, useEffect, useState } from "react";
 
 interface HamburgerMenuProps {
   containerRef: RefObject<HTMLDivElement>;
 }
+
+const links: {
+  link: string;
+  title: string;
+}[] = [
+  {
+    link: "/",
+    title: "Home",
+  },
+  {
+    link: "/about",
+    title: "About",
+  },
+  {
+    link: "/project",
+    title: "Projects",
+  },
+  {
+    link: "/contact",
+    title: "Contacts",
+  },
+];
 
 /**
  * Component for showing navgiation drawer.
@@ -18,6 +42,12 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
     setOpen((prev) => !prev);
   };
 
+  useEffect(() => {
+    open
+      ? document.body.classList.add("overflow-hidden")
+      : document.body.classList.remove("overflow-hidden");
+  }, [open]);
+
   const overlayCx = clsx("nav-overlay", open && "nav-overlay-open");
   const contenxtCx = clsx("nav-content", open && "nav-content-open");
 
@@ -29,36 +59,52 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
         onClick={() => toggleOpen()}
       />
       <Portal.Root containerRef={containerRef}>
-        <div className={clsx("nav-container", open && "pointer-events-auto")}>
+        <div
+          role="dialog"
+          aria-labelledby="Navigation"
+          className={clsx("nav-container", open && "pointer-events-auto")}
+        >
           <div className={overlayCx} />
           <div className={contenxtCx}>
             <div className="nav-inner-backdrop" />
-            <nav className="nav-inner">
-              <div>SMOKING</div>
-              <div>ON</div>
-              <div>TOP FIVES.</div>
-            </nav>
+            <Container className="nav-inner">
+              <nav className="flex items-center flex-grow pt-24">
+                <ul className="nav-inner-list">
+                  {links.map((i) => (
+                    <li key={i.link}>
+                      <Link href={i.link} passHref prefetch={false}>
+                        <a>{i.title}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              <div className="nav-inner-footer">
+                <ul>
+                  <li>
+                    <a
+                      href="https://github.com/mtergel"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GITHUB
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/tergel-munkhdelger-303977174"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      LINKED IN
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </Container>
           </div>
         </div>
       </Portal.Root>
-      {/* <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
-        <HamburgerButton
-          open={open}
-          aria-label={open ? "Close Navigation" : "Open Navigation"}
-          onClick={() => toggleOpen()}
-        />
-        <DialogPrimitive.Portal container={containerRef.current}>
-          <DialogPrimitive.Overlay className={overlayCx} />
-          <DialogPrimitive.Content className={contenxtCx}>
-            <nav>
-              <DialogPrimitive.Title className="sr-only">
-                Navigation
-              </DialogPrimitive.Title>
-         
-            </nav>
-          </DialogPrimitive.Content>
-        </DialogPrimitive.Portal>
-      </DialogPrimitive.Root> */}
     </>
   );
 };
