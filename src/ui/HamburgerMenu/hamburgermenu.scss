@@ -1,0 +1,15 @@
+.nav-container {
+  @apply fixed top-0 left-0 w-full pointer-events-none h-screen;
+}
+
+.nav-overlay {
+  @apply fixed inset-0 opacity-0 transition-opacity duration-500 bg-black;
+
+  &.nav-overlay-open {
+    @apply opacity-50;
+  }
+}
+
+.nav-content {
+  @apply fixed inset-0 transform-none;
+}

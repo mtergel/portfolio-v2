@@ -1,16 +1,18 @@
 import Container from "@/components/Container/Container";
-import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 interface LayoutProps {}
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <header className="top-bar">
-        <Container>
-          <div className="flex items-center justify-between relative py-5">
+        <Container id="nav-container" ref={containerRef}>
+          <div className="flex items-center justify-between relative py-5 z-40">
             <Link href="/" passHref>
               <a className="flex items-center space-x-2">
                 <Image
@@ -24,11 +26,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </span>
               </a>
             </Link>
-            <HamburgerMenu />
+            <HamburgerMenu containerRef={containerRef} />
           </div>
         </Container>
       </header>
-      {/* <main>{children}</main> */}
+      <main className="pt-24">{children}</main>
       <footer></footer>
     </>
   );

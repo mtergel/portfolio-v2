@@ -1,6 +1,7 @@
 .hamburger {
   @apply outline-none;
   padding: 0.6875rem;
+  pointer-events: auto !important;
 
   &:focus {
     @apply outline outline-2 outline-current;
