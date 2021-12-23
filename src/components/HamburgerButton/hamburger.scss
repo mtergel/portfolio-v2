@@ -1,0 +1,32 @@
+.hamburger {
+  @apply outline-none;
+  padding: 0.6875rem;
+  pointer-events: auto !important;
+
+  &:focus {
+    @apply outline outline-2 outline-current;
+  }
+
+  & span {
+    @apply block bg-current rounded;
+    width: 1.625rem;
+    height: 0.125rem;
+    margin: 0.3125rem 0;
+    transform-origin: 45% 50%;
+    transition: transform 350ms, opacity 150ms;
+  }
+
+  &.hamburger-open {
+    & span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    & span:nth-child(2) {
+      @apply opacity-0;
+    }
+
+    & span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+  }
+}

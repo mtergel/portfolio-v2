@@ -1,0 +1,16 @@
+.container-base {
+  @apply w-full m-0;
+
+  padding-right: calc(env(safe-area-inset-right) + 1rem);
+  padding-left: calc(env(safe-area-inset-left) + 1rem);
+
+  @media (min-width: 768px) {
+    padding-right: calc(env(safe-area-inset-right) + 1.5rem);
+    padding-left: calc(env(safe-area-inset-left) + 1.5rem);
+  }
+
+  @media (min-width: 1024px) {
+    padding-right: calc(env(safe-area-inset-right) + 3.75rem);
+    padding-left: calc(env(safe-area-inset-left) + 3.75rem);
+  }
+}
