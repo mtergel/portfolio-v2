@@ -3,8 +3,7 @@
 }
 
 .card {
-  @apply h-[570px] w-[300px] bg-white bg-no-repeat bg-center rounded-lg will-change-transform touch-none;
-  background-size: auto 85%;
-  box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.4),
-    0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  @apply h-[calc(85vmin-3rem)] w-[calc(85vmin-3rem)] bg-white bg-no-repeat bg-center rounded will-change-transform touch-none;
+  background-size: auto 95%;
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 5px 27px;
 }

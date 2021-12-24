@@ -1,8 +1,9 @@
 import Container from "@/components/Container/Container";
 import Twemoji from "@/components/Twemoji/Twemoji";
 import Layout from "@/ui/Layout/Layout";
+import ProjectSummary from "@/ui/ProjectSummary/ProjectSummary";
 import { NextPageWithLayout } from "@/utils/types";
-import { useSpring, animated } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
 
 const Home: NextPageWithLayout = () => {
   const [props, set] = useSpring(() => ({
@@ -41,7 +42,9 @@ const Home: NextPageWithLayout = () => {
           <p>
             Hi there <Twemoji emoji="👋" />, I&apos;m
           </p>
-          <h1 className="text-6xl mb-4 font-black text-green-300">Tergel.</h1>
+          <h1 className="text-8xl my-2 mb-4 font-black text-green-300">
+            Tergel
+          </h1>
           <p>
             Front end developer <Twemoji emoji="👨‍💻" />
           </p>
@@ -83,9 +86,8 @@ const Home: NextPageWithLayout = () => {
           </div>
         </div>
       </Container>
-      {/* <div className="flex items-center justify-center h-screen w-screen relative overflow-hidden">
-        <ProjectDeck />
-      </div> */}
+
+      <ProjectSummary />
     </div>
   );
 };

@@ -1,0 +1,4 @@
+.project-summary-container {
+  @apply grid items-center w-full relative;
+  grid-template-rows: 1fr min-content max-content;
+}
