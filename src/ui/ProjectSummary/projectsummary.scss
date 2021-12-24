@@ -3,10 +3,11 @@
   grid-template-rows: 1fr min-content max-content;
 }
 
-.title {
-  @apply opacity-0 transition-opacity duration-500 text-5xl font-bold tracking-tighter;
-  &.title-active {
-    @apply opacity-100 duration-700 delay-300 hover:underline;
+.slide-info {
+  @apply opacity-0 transition-opacity duration-500;
+
+  &.slide-info-active {
+    @apply opacity-100 duration-700 delay-300;
   }
 }
 

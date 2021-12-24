@@ -5,7 +5,7 @@ import { useSprings } from "@react-spring/web";
 import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
-import { A11y, Autoplay, EffectFade, Swiper } from "swiper";
+import { A11y, EffectFade, Swiper } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { Swiper as ReactSwiper, SwiperSlide } from "swiper/react";
@@ -16,30 +16,43 @@ interface ProjectSummaryProps {}
 
 const cards = [
   {
-    title: "Lil Uzi Vert -  Lil Uzi Vert vs. the World",
-    image: "https://m.media-amazon.com/images/I/81GTBNDWCfL._SS500_.jpg",
-    link: "/project/luv-vs-the-world",
-  },
-  {
-    title: "Lil Uzi Vert - Luv Is Rage",
-    image: "https://m.media-amazon.com/images/I/91dkpgT92CL._SY355_.jpg",
-    link: "/project/luv",
-  },
-  {
-    title: "Nirvana - In Utero",
-    image: "https://m.media-amazon.com/images/I/71WPk8O1dtL._SS500_.jpg",
-    link: "/project/in-utero",
-  },
-  {
-    title: "Nirvana - Bleach",
-    image: "https://classicrockreview.files.wordpress.com/2021/07/bleach.png",
-    link: "/project/bleach",
-  },
-  {
-    title: "21 Savage - Savage Mode",
+    title: "Fuyu",
+    description: "Web based kanban board.",
+    category: "Front end",
     image:
-      "https://media.pitchfork.com/photos/5929bbd0eb335119a49ecb11/1:1/w_600/ae9b1153.jpg",
-    link: "/project/savage-mode",
+      "https://res.cloudinary.com/flare-community/image/upload/v1640348251/static/fuyu_e5kvus.png",
+    link: "/project/flare-community",
+  },
+  {
+    title: "Kosame",
+    description: "See the Weather Forecast right in your browser.",
+    category: "Chrome Extension",
+    image:
+      "https://res.cloudinary.com/flare-community/image/upload/v1640346512/static/kosame_ztujpi.png",
+    link: "/project/flare-community",
+  },
+  {
+    title: "Senritsu",
+    description: "Discover music using Spotify.",
+    category: "Front end",
+    image:
+      "https://res.cloudinary.com/flare-community/image/upload/v1640345489/static/senritsu1_fvroig.png",
+    link: "/project/flare-community",
+  },
+  {
+    title: "Railway",
+    description: "A simple note taking application inspired by the Notes app.",
+    category: "Full Stack",
+    image:
+      "https://res.cloudinary.com/flare-community/image/upload/v1640347935/static/Railway_gn1pih.png",
+    link: "/project/flare-community",
+  },
+  {
+    title: "Flare",
+    description: "A information sharing community for developers.",
+    category: "Full Stack",
+    image: "https://flare-community.vercel.app/logo-dark.png",
+    link: "/project/flare-community",
   },
 ];
 
@@ -56,7 +69,6 @@ const to = (i: number, active: boolean) => {
 const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
   const [titleSwiper, setTitleSwiper] = useState<Swiper | null>(null);
   const [activeIndex, setActiveIndex] = useState(cards.length - 1);
-  const [resetting, setResetting] = useState(false);
 
   // The set flags all the cards that are flicked out
   const [gone] = useState(() => new Set<number>());
@@ -145,14 +157,12 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
   };
 
   const handleReset = () => {
-    setResetting(true);
     setTimeout(() => {
       gone.clear();
       api.start((i) => to(i, i === cards.length - 1));
 
       setActiveIndex(cards.length - 1);
       titleSwiper?.slideTo(0);
-      setResetting(false);
     }, 600);
   };
 
@@ -175,12 +185,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
           <h2 className="sr-only">Featured Projects.</h2>
         </div>
         <ReactSwiper
-          modules={[A11y, EffectFade, Autoplay]}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-            waitForTransition: false,
-          }}
+          modules={[A11y, EffectFade]}
           onInit={setTitleSwiper}
           slidesPerView={1}
           preventClicks={false}
@@ -197,17 +202,21 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
               <SwiperSlide key={i.title}>
                 {({ isActive }) => {
                   return (
-                    <div>
+                    <div
+                      className={clsx(
+                        "slide-info",
+                        isActive && "slide-info-active"
+                      )}
+                    >
+                      <p className="uppercase text-xs tracking-tighter font-bold mb-1">
+                        {i.category}
+                      </p>
                       <Link href={i.link} passHref prefetch={false}>
-                        <a
-                          className={clsx(
-                            "title",
-                            !resetting && isActive && "title-active"
-                          )}
-                        >
+                        <a className="text-5xl font-bold tracking-tighter hover:underline">
                           {i.title}
                         </a>
                       </Link>
+                      <p className="tracking-tighter pt-2">{i.description}</p>
                     </div>
                   );
                 }}
@@ -240,12 +249,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                   : (cards.length - activeIndex).toString().padStart(2, "0")}
               </span>
               <div className="controller-bar">
-                <div
-                  className={clsx(
-                    "controller-bar-inner",
-                    titleSwiper?.autoplay.running && "animating"
-                  )}
-                />
+                <div className={"controller-bar-inner"} />
               </div>
               <span className="text-sm font-bold tracking-tighter">
                 {cards.length.toString().padStart(2, "0")}
