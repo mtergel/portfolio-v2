@@ -1,4 +1,50 @@
 .project-summary-container {
-  @apply grid items-center w-full relative;
+  @apply grid items-center w-full relative mt-2 mb-4;
   grid-template-rows: 1fr min-content max-content;
+}
+
+.title {
+  @apply opacity-0 transition-opacity duration-500 text-5xl font-bold tracking-tighter;
+  &.title-active {
+    @apply opacity-100 duration-700 delay-300 hover:underline;
+  }
+}
+
+.swiper {
+  @apply w-full max-w-[calc(100vw-1rem)];
+}
+
+.controller-button {
+  @apply p-3 relative text-current transition-colors duration-300;
+
+  &:hover,
+  &:focus {
+    @apply text-green-300;
+  }
+
+  &:disabled {
+    @apply text-gray-800;
+  }
+}
+
+.controller-timeline {
+  @apply flex items-center;
+
+  & span {
+    @apply w-[2ch];
+  }
+}
+
+.controller-bar {
+  @apply relative w-10 h-[0.125rem] mx-3;
+
+  & .controller-bar-inner {
+    @apply absolute w-full h-full bg-white origin-left;
+
+    // TODO ADD LATER
+
+    // &.animating {
+    //   @apply animate-controllerBarLinear;
+    // }
+  }
 }

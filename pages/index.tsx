@@ -33,8 +33,8 @@ const Home: NextPageWithLayout = () => {
     `translate3d(${x / 10 - 185}px,${y / 10 + 275}px,0)`;
 
   return (
-    <div className="h-full overflow-x-hidden">
-      <Container
+    <div className="h-full overflow-x-hidden pt-[88px]">
+      {/* <Container
         onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
         className="h-[calc(100vh-88px)] flex items-center justify-between relative"
       >
@@ -85,7 +85,7 @@ const Home: NextPageWithLayout = () => {
             />
           </div>
         </div>
-      </Container>
+      </Container> */}
 
       <ProjectSummary />
     </div>

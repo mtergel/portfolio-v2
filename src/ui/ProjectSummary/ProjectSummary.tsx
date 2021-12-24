@@ -1,18 +1,46 @@
 import Container from "@/components/Container/Container";
-import { useState } from "react";
-import ProjectDeck from "../ProjectDeck/ProjectDeck";
 import { BiSkipNext } from "@react-icons/all-files/bi/BiSkipNext";
 import { BiSkipPrevious } from "@react-icons/all-files/bi/BiSkipPrevious";
 import { useSprings } from "@react-spring/web";
+import clsx from "clsx";
+import Link from "next/link";
+import { useState } from "react";
+import { A11y, Autoplay, EffectFade, Swiper } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import { Swiper as ReactSwiper, SwiperSlide } from "swiper/react";
+import ProjectDeck from "../ProjectDeck/ProjectDeck";
+import ControllerButton from "./ControllerButton";
 
 interface ProjectSummaryProps {}
 
 const cards = [
-  "https://m.media-amazon.com/images/I/81GTBNDWCfL._SS500_.jpg",
-  "https://m.media-amazon.com/images/I/91dkpgT92CL._SY355_.jpg",
-  "https://m.media-amazon.com/images/I/71WPk8O1dtL._SS500_.jpg",
-  "https://classicrockreview.files.wordpress.com/2021/07/bleach.png",
-  "https://images.theconversation.com/files/421858/original/file-20210917-31825-dmecrb.jpg?ixlib=rb-1.1.0&rect=36%2C26%2C3458%2C3468&q=45&auto=format&w=926&fit=clip",
+  {
+    title: "Lil Uzi Vert -  Lil Uzi Vert vs. the World",
+    image: "https://m.media-amazon.com/images/I/81GTBNDWCfL._SS500_.jpg",
+    link: "/project/luv-vs-the-world",
+  },
+  {
+    title: "Lil Uzi Vert - Luv Is Rage",
+    image: "https://m.media-amazon.com/images/I/91dkpgT92CL._SY355_.jpg",
+    link: "/project/luv",
+  },
+  {
+    title: "Nirvana - In Utero",
+    image: "https://m.media-amazon.com/images/I/71WPk8O1dtL._SS500_.jpg",
+    link: "/project/in-utero",
+  },
+  {
+    title: "Nirvana - Bleach",
+    image: "https://classicrockreview.files.wordpress.com/2021/07/bleach.png",
+    link: "/project/bleach",
+  },
+  {
+    title: "21 Savage - Savage Mode",
+    image:
+      "https://media.pitchfork.com/photos/5929bbd0eb335119a49ecb11/1:1/w_600/ae9b1153.jpg",
+    link: "/project/savage-mode",
+  },
 ];
 
 const to = (i: number, active: boolean) => {
@@ -26,7 +54,9 @@ const to = (i: number, active: boolean) => {
 };
 
 const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
+  const [titleSwiper, setTitleSwiper] = useState<Swiper | null>(null);
   const [activeIndex, setActiveIndex] = useState(cards.length - 1);
+  const [resetting, setResetting] = useState(false);
 
   // The set flags all the cards that are flicked out
   const [gone] = useState(() => new Set<number>());
@@ -46,16 +76,14 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
         rot: 0,
       };
     });
+
+    titleSwiper?.slideNext();
   };
 
   const handleClickNext = () => {
     // noop in empty period
     if (activeIndex === -1) return;
 
-    if (activeIndex === 0) {
-      // reset
-      handleReset();
-    }
     // move card
     api.start((i) => {
       if (activeIndex !== i) return;
@@ -70,9 +98,15 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
         config: { friction: 50, tension: 200 },
       };
     });
+    gone.add(activeIndex);
 
-    // update activeIndex
-    handleSwipeNext();
+    if (activeIndex === 0) {
+      // reset
+      handleReset();
+    } else {
+      // update activeIndex
+      handleSwipeNext();
+    }
   };
 
   const handleClickPrev = () => {
@@ -85,29 +119,43 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
         return {
           x: 0,
           rot: 0,
+          scale: 1,
+          delay: undefined,
+          config: { friction: 50, tension: 500 },
         };
       }
 
       if (activeIndex === i) {
         // rotate the current card
         return {
+          x: 0,
+          scale: 1,
+          delay: undefined,
           rot: -10 + Math.random() * 20,
+          config: { friction: 50, tension: 500 },
         };
       }
     });
 
     // update activeIndex
+    // add it to gone
+    gone.delete(activeIndex + 1);
     setActiveIndex((prev) => prev + 1);
+    titleSwiper?.slidePrev();
   };
 
   const handleReset = () => {
+    setResetting(true);
     setTimeout(() => {
       gone.clear();
       api.start((i) => to(i, i === cards.length - 1));
 
       setActiveIndex(cards.length - 1);
+      titleSwiper?.slideTo(0);
+      setResetting(false);
     }, 600);
   };
+
   return (
     <Container>
       <div className="h-[calc(100vh-88px)]">
@@ -124,19 +172,86 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
           </div>
         </div>
         <div>
-          <p>{`Title for slide: ${activeIndex}`}</p>
+          <h2 className="sr-only">Featured Projects.</h2>
         </div>
-        <div className="flex items-center space-x-2">
-          <button
-            disabled={activeIndex === cards.length - 1}
-            type="button"
-            onClick={handleClickPrev}
-          >
-            <BiSkipPrevious />
-          </button>
-          <button type="button" onClick={handleClickNext}>
-            <BiSkipNext />
-          </button>
+        <ReactSwiper
+          modules={[A11y, EffectFade, Autoplay]}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+            waitForTransition: false,
+          }}
+          onInit={setTitleSwiper}
+          slidesPerView={1}
+          preventClicks={false}
+          watchSlidesProgress
+          speed={500}
+          effect="fade"
+          allowTouchMove={false}
+          roundLengths
+        >
+          {cards
+            .slice(0)
+            .reverse()
+            .map((i) => (
+              <SwiperSlide key={i.title}>
+                {({ isActive }) => {
+                  return (
+                    <div>
+                      <Link href={i.link} passHref prefetch={false}>
+                        <a
+                          className={clsx(
+                            "title",
+                            !resetting && isActive && "title-active"
+                          )}
+                        >
+                          {i.title}
+                        </a>
+                      </Link>
+                    </div>
+                  );
+                }}
+              </SwiperSlide>
+            ))}
+        </ReactSwiper>
+        <div className="mt-12">
+          <div className="flex items-center space-x-2">
+            <ControllerButton
+              disabled={activeIndex === cards.length - 1}
+              type="button"
+              onClick={handleClickPrev}
+              className="prev-project"
+            >
+              <BiSkipPrevious className="h-7 w-7" />
+            </ControllerButton>
+            <ControllerButton
+              type="button"
+              onClick={handleClickNext}
+              className="next-project"
+            >
+              <BiSkipNext className="h-7 w-7" />
+            </ControllerButton>
+          </div>
+          <div className="pl-4">
+            <div className="controller-timeline">
+              <span className="text-sm font-bold tracking-tighter">
+                {activeIndex < 0
+                  ? cards.length.toString().padStart(2, "0")
+                  : (cards.length - activeIndex).toString().padStart(2, "0")}
+              </span>
+              <div className="controller-bar">
+                <div
+                  className={clsx(
+                    "controller-bar-inner",
+                    titleSwiper?.autoplay.running && "animating"
+                  )}
+                />
+              </div>
+              <span className="text-sm font-bold tracking-tighter">
+                {cards.length.toString().padStart(2, "0")}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </Container>

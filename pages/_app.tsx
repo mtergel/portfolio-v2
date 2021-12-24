@@ -1,4 +1,5 @@
 import "@/styles/globals.scss";
+
 import { NextPageWithLayout } from "@/utils/types";
 import { IconContext } from "@react-icons/all-files/lib";
 import type { AppProps } from "next/app";
