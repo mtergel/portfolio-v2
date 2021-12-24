@@ -167,64 +167,10 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
   };
 
   return (
-    <Container>
-      <div className="h-[calc(100vh-88px)]">
-        <div className="project-summary-container">
-          <div className="grid justify-center items-center relative w-full select-none h-[calc(70vmin+5rem)]">
-            <ProjectDeck
-              cards={cards}
-              gone={gone}
-              api={api}
-              springs={springs}
-              onReset={handleReset}
-              onSwipeNext={handleSwipeNext}
-            />
-          </div>
-        </div>
-        <div>
-          <h2 className="sr-only">Featured Projects.</h2>
-        </div>
-        <ReactSwiper
-          modules={[A11y, EffectFade]}
-          onInit={setTitleSwiper}
-          slidesPerView={1}
-          preventClicks={false}
-          watchSlidesProgress
-          speed={500}
-          effect="fade"
-          allowTouchMove={false}
-          roundLengths
-        >
-          {cards
-            .slice(0)
-            .reverse()
-            .map((i) => (
-              <SwiperSlide key={i.title}>
-                {({ isActive }) => {
-                  return (
-                    <div
-                      className={clsx(
-                        "slide-info",
-                        isActive && "slide-info-active"
-                      )}
-                    >
-                      <p className="uppercase text-xs tracking-tighter font-bold mb-1">
-                        {i.category}
-                      </p>
-                      <Link href={i.link} passHref prefetch={false}>
-                        <a className="text-5xl font-bold tracking-tighter hover:underline">
-                          {i.title}
-                        </a>
-                      </Link>
-                      <p className="tracking-tighter pt-2">{i.description}</p>
-                    </div>
-                  );
-                }}
-              </SwiperSlide>
-            ))}
-        </ReactSwiper>
-        <div className="mt-12">
-          <div className="flex items-center space-x-2">
+    <Container className="h-[calc(100vh-88px)]">
+      <div className="project-summary-container">
+        <div className="project-controls">
+          <div className="flex items-center gap-2 sm:flex-col lg:flex-row xl:flex-col">
             <ControllerButton
               disabled={activeIndex === cards.length - 1}
               type="button"
@@ -241,20 +187,72 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
               <BiSkipNext className="h-7 w-7" />
             </ControllerButton>
           </div>
-          <div className="pl-4">
-            <div className="controller-timeline">
-              <span className="text-sm font-bold tracking-tighter">
-                {activeIndex < 0
-                  ? cards.length.toString().padStart(2, "0")
-                  : (cards.length - activeIndex).toString().padStart(2, "0")}
-              </span>
-              <div className="controller-bar">
-                <div className={"controller-bar-inner"} />
-              </div>
-              <span className="text-sm font-bold tracking-tighter">
-                {cards.length.toString().padStart(2, "0")}
-              </span>
+        </div>
+        <div className="project-carousel">
+          <h2 className="sr-only">Featured Projects.</h2>
+          <ReactSwiper
+            modules={[A11y, EffectFade]}
+            onInit={setTitleSwiper}
+            slidesPerView={1}
+            preventClicks={false}
+            watchSlidesProgress
+            speed={500}
+            effect="fade"
+            allowTouchMove={false}
+            roundLengths
+          >
+            {cards
+              .slice(0)
+              .reverse()
+              .map((i) => (
+                <SwiperSlide key={i.title}>
+                  {({ isActive }) => {
+                    return (
+                      <div
+                        className={clsx(
+                          "slide-info",
+                          isActive && "slide-info-active"
+                        )}
+                      >
+                        <p className="uppercase text-xs tracking-tighter font-bold mb-1">
+                          {i.category}
+                        </p>
+                        <Link href={i.link} passHref prefetch={false}>
+                          <a className="text-5xl font-bold tracking-tighter hover:underline">
+                            {i.title}
+                          </a>
+                        </Link>
+                        <p className="tracking-tighter pt-2">{i.description}</p>
+                      </div>
+                    );
+                  }}
+                </SwiperSlide>
+              ))}
+          </ReactSwiper>
+        </div>
+        <div className="project-cards">
+          <ProjectDeck
+            cards={cards}
+            gone={gone}
+            api={api}
+            springs={springs}
+            onReset={handleReset}
+            onSwipeNext={handleSwipeNext}
+          />
+        </div>
+        <div className="project-bottombar">
+          <div className="controller-timeline">
+            <span className="text-sm font-bold tracking-tighter">
+              {activeIndex < 0
+                ? cards.length.toString().padStart(2, "0")
+                : (cards.length - activeIndex).toString().padStart(2, "0")}
+            </span>
+            <div className="controller-bar">
+              <div className={"controller-bar-inner"} />
             </div>
+            <span className="text-sm font-bold tracking-tighter">
+              {cards.length.toString().padStart(2, "0")}
+            </span>
           </div>
         </div>
       </div>

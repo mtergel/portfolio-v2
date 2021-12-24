@@ -5,8 +5,8 @@
 .card {
   @apply cursor-grab active:cursor-grabbing bg-white bg-no-repeat bg-center rounded will-change-transform touch-none;
 
-  @apply h-[calc(85vmin-3rem)] w-[calc(85vmin-3rem)] sm:h-[calc(22rem+12vmin)] sm:w-[calc(22rem+12vmin)] lg:h-[calc(20rem+10vw)] lg:w-[calc(20rem+10vw)] xl:h-[calc(20rem+30vmin)] xl:w-[calc(20rem+30vmin)];
+  @apply h-[calc(85vmin-3rem)] w-[calc(85vmin-3rem)] sm:h-[calc(22rem+12vmin)] sm:w-[calc(22rem+12vmin)] lg:h-[calc(20rem+10vw)] lg:w-[calc(20rem+10vw)] xl:h-[calc(20rem+20vmin)] xl:w-[calc(20rem+20vmin)];
 
-  background-size: auto 95%;
+  background-size: auto 98%;
   box-shadow: rgba(0, 0, 0, 0.5) 2px 5px 27px;
 }
