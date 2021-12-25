@@ -1204,6 +1204,13 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+dom7@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/dom7/-/dom7-4.0.2.tgz#b3595f34c9658d72e88bb6fa6a6e7b430d4bd5fd"
+  integrity sha512-Ji4t3Y/vNQg6Q9bR+Syx6Td8qiq8116LE9h4OzbPuxdxK7DyyX7i8EXkYgBX6+EiX6+oYXDTH5BSN29G/n4jug==
+  dependencies:
+    ssr-window "^4.0.0"
+
 domain-browser@4.19.0:
   version "4.19.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-4.19.0.tgz#1093e17c0a17dbd521182fe90d49ac1370054af1"
@@ -3382,6 +3389,11 @@ specificity@^0.4.1:
   resolved "https://registry.yarnpkg.com/specificity/-/specificity-0.4.1.tgz#aab5e645012db08ba182e151165738d00887b019"
   integrity sha512-1klA3Gi5PD1Wv9Q0wUoOQN1IWAuPu0D1U03ThXTr0cJ20+/iq2tHSDnK7Kk/0LXJ1ztUB2/1Os0wKmfyNgUQfg==
 
+ssr-window@^4.0.0, ssr-window@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/ssr-window/-/ssr-window-4.0.2.tgz#dc6b3ee37be86ac0e3ddc60030f7b3bc9b8553be"
+  integrity sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==
+
 stacktrace-parser@0.1.10:
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/stacktrace-parser/-/stacktrace-parser-0.1.10.tgz#29fb0cae4e0d0b85155879402857a1639eb6051a"
@@ -3625,6 +3637,14 @@ svg-tags@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
   integrity sha1-WPcc7jvVGbWdSyqEO2x95krAR2Q=
+
+swiper@^7.3.4:
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-7.3.4.tgz#84346930972277a6ae710e3e88c1b05adf3748c0"
+  integrity sha512-inlAKAA12oiCL3eSWC8WxtwWtzGZ7VU4sABWzwAk75+TU2AMi0+MyjlQ6QSlCkv/vrnMT6CsPant6wyNouuUww==
+  dependencies:
+    dom7 "^4.0.2"
+    ssr-window "^4.0.2"
 
 table@^6.7.3:
   version "6.7.5"

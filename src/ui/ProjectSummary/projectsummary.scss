@@ -1,0 +1,109 @@
+.project-summary-container {
+  @apply grid items-center w-full relative;
+  grid-template-rows: 1fr min-content max-content;
+  @media (min-width: 640px) {
+    grid-template-columns: max-content 1fr;
+  }
+  @media (min-width: 1024px) {
+    grid-template-rows: auto;
+    grid-template-columns: max-content 1fr;
+  }
+  @media (min-width: 1280px) {
+    grid-template-columns: max-content max-content 1fr;
+  }
+}
+
+.project-carousel {
+  @apply order-2 sm:order-3 sm:col-span-2;
+  @media (min-width: 1024px) {
+    grid-row: auto;
+    grid-column: auto;
+    order: 0;
+  }
+
+  & .swiper {
+    @media (min-width: 1024px) {
+      max-width: calc(12rem + 30vw);
+    }
+    @media (min-width: 1280px) {
+      max-width: calc(6rem + 18vw);
+    }
+  }
+}
+
+.project-controls {
+  @apply order-3 z-10 mt-12 sm:mt-0 sm:order-1 lg:order-2;
+  @media (min-width: 640px) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  @media (min-width: 1024px) {
+    grid-auto-flow: column;
+    grid-row: auto;
+    grid-column: auto;
+  }
+  @media (min-width: 1280px) {
+    @apply mr-16;
+    order: 0;
+  }
+}
+.project-cards {
+  @apply order-1 grid justify-center items-center relative w-full select-none h-[calc(70vmin+5rem)] sm:max-h-[41.25rem];
+  @media (min-width: 640px) {
+    order: 2;
+    grid-row: 1;
+  }
+  @media (min-width: 1024px) {
+    grid-row: auto;
+    grid-column: auto;
+    order: 0;
+  }
+}
+
+.project-bottombar {
+  @apply order-5 flex items-center mt-2 justify-between sm:col-span-2;
+  @media (min-width: 1280px) {
+    grid-column: 2 / span 2;
+  }
+}
+
+.slide-info {
+  @apply opacity-0 transition-opacity duration-500;
+
+  &.slide-info-active {
+    @apply opacity-100 duration-700 delay-300;
+  }
+}
+
+.swiper {
+  @apply w-full max-w-[calc(100vw-1rem)];
+}
+
+.controller-button {
+  @apply p-3 relative text-current transition-colors duration-300;
+
+  &:hover,
+  &:focus {
+    @apply text-green-300;
+  }
+
+  &:disabled {
+    @apply text-gray-800;
+  }
+}
+
+.controller-timeline {
+  @apply flex items-center;
+
+  & span {
+    @apply w-[2ch];
+  }
+}
+
+.controller-bar {
+  @apply relative w-10 h-[0.125rem] mx-3;
+
+  & .controller-bar-inner {
+    @apply absolute w-full h-full bg-white origin-left;
+  }
+}
