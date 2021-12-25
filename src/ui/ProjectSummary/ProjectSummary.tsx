@@ -54,6 +54,15 @@ const cards = [
     image: "https://flare-community.vercel.app/logo-dark.png",
     link: "/project/flare-community",
   },
+  {
+    title: "Amar Content Service",
+    description:
+      "Product information management, inventory, retailing solution.",
+    category: "Front end",
+    image:
+      "https://res.cloudinary.com/flare-community/image/upload/v1640423928/static/acs_ixa2i6.png",
+    link: "/project/flare-community",
+  },
 ];
 
 const to = (i: number, active: boolean) => {
@@ -167,7 +176,11 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
   };
 
   return (
-    <Container className="h-[calc(100vh-88px)]">
+    <Container className="min-h-[calc(100vh-88px)] py-12">
+      <h2 className="text-2xl mb-6">
+        Here are a few projects I&apos;ve worked on recently
+      </h2>
+
       <div className="project-summary-container">
         <div className="project-controls">
           <div className="flex items-center gap-2 sm:flex-col lg:flex-row xl:flex-col">
@@ -189,7 +202,6 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
           </div>
         </div>
         <div className="project-carousel">
-          <h2 className="sr-only">Featured Projects.</h2>
           <ReactSwiper
             modules={[A11y, EffectFade]}
             onInit={setTitleSwiper}

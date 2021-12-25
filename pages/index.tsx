@@ -34,9 +34,9 @@ const Home: NextPageWithLayout = () => {
 
   return (
     <div className="h-full overflow-x-hidden pt-[88px]">
-      {/* <Container
+      <Container
         onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-        className="h-[calc(100vh-88px)] flex items-center justify-between relative"
+        className="min-h-[calc(100vh-88px)] flex items-center justify-between relative"
       >
         <div className="flex flex-col justify-center z-10">
           <p>
@@ -85,7 +85,7 @@ const Home: NextPageWithLayout = () => {
             />
           </div>
         </div>
-      </Container> */}
+      </Container>
 
       <ProjectSummary />
     </div>
