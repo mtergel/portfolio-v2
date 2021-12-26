@@ -17,6 +17,7 @@ module.exports = {
         slideDownAndFade:
           "slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         controllerBarLinear: "controllerBar 5s linear infinite forwards",
+        infoFadeIn: "fadeIn 700ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
         slideDownAndFade: {
@@ -26,6 +27,10 @@ module.exports = {
         controllerBar: {
           "0%": { transform: "scaleX(0)" },
           "100%": { transform: "scaleX(1)" },
+        },
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
         },
       },
     },

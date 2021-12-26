@@ -1,17 +1,29 @@
 import Container from "@/components/Container/Container";
+import { useSpring } from "@react-spring/core";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import clsx from "clsx";
 import Link from "next/link";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Model from "./Macbook";
 import Shapes from "./Shapes";
+import { animated } from "@react-spring/web";
+import { animated as three } from "@react-spring/three";
 
 interface AboutMeShortProps {}
 
 const AboutMeShort: React.FC<AboutMeShortProps> = () => {
+  // This flag controls open state, alternates between true & false
+  const [open, setOpen] = useState(false);
+  // We turn this into a spring animation that interpolates between 0 and 1
+  const props = useSpring({ open: Number(open) });
+
   return (
-    <div className="bg-[#f0f0f0] text-[#1D1D1F] w-full z-10 relative min-h-screen py-12 flex flex-col items-center justify-center">
-      <Container className="flex flex-col-reverse md:flex-row items-center justify-between w-full">
+    <animated.div
+      style={{ background: props.open.to([0, 1], ["#FBFBFD", "#EEEFFE"]) }}
+      className="text-[#1D1D1F] w-full z-10 relative min-h-screen py-12 flex flex-col items-center justify-center"
+    >
+      <Container className="flex flex-col-reverse gap-2 md:flex-row items-center justify-between w-full">
         <div className="w-full">
           <h2 className="text-2xl mb-6">A little bit about myself</h2>
           <div className="max-w-[calc(12rem+18vw)]">
@@ -39,26 +51,38 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
             </Link>
           </div>
         </div>
-        <div className="flex-shrink-0 h-[300px] w-full md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px]">
-          <Canvas dpr={[1, 2]} camera={{ fov: 35, position: [0, 0, -30] }}>
-            <pointLight
+        <div className="relative cursor-grab active:cursor-grabbing flex-shrink-0 h-[250px] w-full md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px]">
+          <Canvas dpr={[1, 2]} camera={{ fov: 35, position: [0, 0, -35] }}>
+            {/* @ts-ignore */}
+            <three.pointLight
               position={[10, 10, -10]}
               intensity={2}
-              color={"#f0f0f0"}
+              color={props.open.to([0, 1], ["#FBFBFD", "#EEEFFE"])}
             />
             <Suspense fallback={null}>
-              <group rotation={[0, Math.PI, 0]}>
-                <Model position={[0, 0, -1]} />
-                {/* <Model
-                open={open}
-                hinge={props.open.to([0, 1], [1.575, -0.425])}
-              /> */}
+              <group
+                rotation={[0, Math.PI, 0]}
+                onClick={(e) => (e.stopPropagation(), setOpen(!open))}
+              >
+                <Model
+                  open={open}
+                  hinge={props.open.to([0, 1], [1.575, -0.425])}
+                  position={[0, 0, -1]}
+                />
               </group>
-              <Shapes />
-
+              <Shapes open={open} />
+              <OrbitControls
+                enableDamping
+                dampingFactor={0.05}
+                screenSpacePanning={false}
+                maxPolarAngle={Math.PI / 2}
+                autoRotate={!open}
+                autoRotateSpeed={0.3}
+                enablePan={false}
+                enableZoom={false}
+              />
               <Environment preset="city" />
             </Suspense>
-            <OrbitControls enableZoom={false} makeDefault />
             <ContactShadows
               rotation-x={Math.PI / 2}
               position={[0, -4.5, 0]}
@@ -69,9 +93,14 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
               far={4.5}
             />
           </Canvas>
+          <div className="absolute bottom-0">
+            <span className={clsx("info-panel", !open && "info-panel-open")}>
+              Click on the notebook
+            </span>
+          </div>
         </div>
       </Container>
-    </div>
+    </animated.div>
   );
 };
 

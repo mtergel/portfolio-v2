@@ -2,53 +2,73 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 
-interface ShapesProps {}
+interface ShapesProps {
+  open: boolean;
+}
 
-const Shapes: React.FC<ShapesProps> = () => {
+const Shapes: React.FC<ShapesProps> = ({ open }) => {
   const group = useRef<THREE.Group>();
+  const boxRef = useRef<THREE.Mesh>();
+  const pyramidRef = useRef<THREE.Mesh>();
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
+
     if (group.current) {
-      group.current.rotation.y += 0.001;
-      group.current.rotation.x = THREE.MathUtils.lerp(
-        group.current.rotation.x,
-        Math.sin(t / 2) / 8 + 0.5,
-        0.5
+      group.current.position.y = THREE.MathUtils.lerp(
+        group.current.position.y,
+        open ? (-2 + Math.sin(t)) / 2 : -3.5,
+        0.1
       );
+      if (open) {
+        group.current.rotation.y += 0.005;
+      }
+
+      if (boxRef.current) {
+        boxRef.current.rotation.x = THREE.MathUtils.lerp(
+          boxRef.current.rotation.x,
+          open ? Math.sin(t / 2) / 2 + 0.5 : 0,
+          0.1
+        );
+      }
+
+      if (pyramidRef.current) {
+        pyramidRef.current.rotation.x = THREE.MathUtils.lerp(
+          pyramidRef.current.rotation.x,
+          open ? Math.cos(t / 2) / 2 + 0.5 : 0,
+          0.1
+        );
+      }
     }
   });
 
   return (
-    <group ref={group}>
-      <mesh position={[5.5, 3, -6]}>
+    <group ref={group} position={[0, -3.5, 0]}>
+      <mesh position={[6, 0, -6.5]}>
         <sphereGeometry attach="geometry" args={[1, 16, 16]} />
         <meshStandardMaterial
           attach="material"
           color="#d25578"
-          transparent
           roughness={0.1}
           metalness={0.1}
         />
       </mesh>
 
-      <mesh position={[-3, 2.5, -6]}>
-        <tetrahedronGeometry attach="geometry" args={[1.5]} />
+      <mesh ref={pyramidRef} position={[-3, 0, -8]}>
+        <cylinderGeometry attach="geometry" args={[0, 1.5, 2, 4, 1]} />
         <meshStandardMaterial
           attach="material"
           color="#9355B6"
-          transparent
           roughness={0.1}
           metalness={0.1}
         />
       </mesh>
 
-      <mesh position={[0, 5, 6]}>
-        <torusBufferGeometry attach="geometry" args={[1, 0.4, 8, 100]} />
+      <mesh ref={boxRef} position={[1, 0, 8]}>
+        <boxGeometry attach="geometry" args={[2, 2, 2]} />
         <meshStandardMaterial
           attach="material"
           color="#F3BF37"
-          transparent
           roughness={0.1}
           metalness={0.1}
         />
