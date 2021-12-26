@@ -176,7 +176,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
   };
 
   return (
-    <Container className="min-h-[calc(100vh-88px)] py-12">
+    <Container className="min-h-screen py-12">
       <h2 className="text-2xl mb-6">
         Here are a few projects I&apos;ve worked on recently
       </h2>
