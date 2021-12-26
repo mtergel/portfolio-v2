@@ -1,5 +1,6 @@
 import Container from "@/components/Container/Container";
 import Twemoji from "@/components/Twemoji/Twemoji";
+import AboutMeShort from "@/ui/AboutMeShort/AboutMeShort";
 import Layout from "@/ui/Layout/Layout";
 import ProjectSummary from "@/ui/ProjectSummary/ProjectSummary";
 import { NextPageWithLayout } from "@/utils/types";
@@ -33,11 +34,11 @@ const Home: NextPageWithLayout = () => {
     `translate3d(${x / 10 - 185}px,${y / 10 + 275}px,0)`;
 
   return (
-    <div className="h-full overflow-x-hidden pt-[88px]">
-      <Container
-        onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-        className="min-h-[calc(100vh-88px)] flex items-center justify-between relative"
-      >
+    <div
+      className="h-full overflow-x-hidden pt-[88px]"
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+    >
+      <Container className="min-h-[calc(100vh-88px)] flex items-center justify-between relative">
         <div className="flex flex-col justify-center z-10">
           <p>
             Hi there <Twemoji emoji="👋" />, I&apos;m
@@ -86,6 +87,8 @@ const Home: NextPageWithLayout = () => {
           </div>
         </div>
       </Container>
+
+      <AboutMeShort />
 
       <ProjectSummary />
     </div>
