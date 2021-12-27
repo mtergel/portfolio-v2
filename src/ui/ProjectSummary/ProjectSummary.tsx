@@ -191,6 +191,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                 type="button"
                 onClick={handleClickPrev}
                 className="prev-project"
+                label="Previous"
               >
                 <BiSkipPrevious className="h-7 w-7" />
               </ControllerButton>
@@ -198,6 +199,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                 type="button"
                 onClick={handleClickNext}
                 className="next-project"
+                label="Next"
               >
                 <BiSkipNext className="h-7 w-7" />
               </ControllerButton>

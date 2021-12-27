@@ -79,19 +79,6 @@
   @apply w-full max-w-[calc(100vw-1rem)];
 }
 
-.controller-button {
-  @apply p-3 relative text-current transition-colors duration-300;
-
-  &:hover,
-  &:focus {
-    @apply text-green-300;
-  }
-
-  &:disabled {
-    @apply text-gray-800;
-  }
-}
-
 .controller-timeline {
   @apply flex items-center;
 

@@ -1,6 +1,8 @@
 import { forwardRef } from "react";
 
-interface ControllerButtonOption {}
+interface ControllerButtonOption {
+  label: string;
+}
 
 type Ref = HTMLButtonElement;
 type ControllerButtonProps = React.DetailedHTMLProps<
@@ -11,11 +13,13 @@ type ControllerButtonProps = React.DetailedHTMLProps<
 
 const ControllerButton = forwardRef<Ref, ControllerButtonProps>(
   (props, ref) => {
-    const { className, children, ...rest } = props;
+    const { className, label, children, ...rest } = props;
 
     return (
       <button ref={ref} className="controller-button" {...rest}>
         {children}
+
+        <span className="controls-label">{label}</span>
       </button>
     );
   }
