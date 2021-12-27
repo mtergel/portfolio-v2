@@ -5,7 +5,6 @@ import Layout from "@/ui/Layout/Layout";
 import ProjectSummary from "@/ui/ProjectSummary/ProjectSummary";
 import { NextPageWithLayout } from "@/utils/types";
 import { animated, useSpring } from "@react-spring/web";
-
 const Home: NextPageWithLayout = () => {
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
@@ -93,6 +92,27 @@ const Home: NextPageWithLayout = () => {
       <AboutMeShort />
 
       <ProjectSummary />
+
+      <section>
+        <div className="min-h-screen flex items-center">
+          <Container className="contact-info">
+            <div className="flex flex-col items-center justify-center text-center">
+              <h2 className="text-4xl mb-4">Get In Touch</h2>
+              <span className="max-w-sm">
+                I&apos;m looking new opportunities, my inbox is always open.
+                Whether you have a question or just want to say hi, I&apos;ll
+                try my best to get back to you!
+              </span>
+              <a
+                className="mt-4 rounded border border-green-300 text-green-300 px-5 py-2"
+                href="mailto:tergelm@gmail.com"
+              >
+                Say Hi
+              </a>
+            </div>
+          </Container>
+        </div>
+      </section>
     </div>
   );
 };

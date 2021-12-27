@@ -30,6 +30,10 @@ img.emoji {
 @import "../ui/ProjectSummary/projectsummary.scss";
 @import "../ui/ProjectSummary/controllerbutton.scss";
 
+.contact-info {
+  @apply bg-repeat;
+  background-image: url("/assets/contact.svg");
+}
 .r-icon {
   @apply h-5 w-5;
 }
