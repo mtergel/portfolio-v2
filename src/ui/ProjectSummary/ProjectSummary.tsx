@@ -17,6 +17,16 @@ interface ProjectSummaryProps {}
 
 const cards = [
   {
+    title: "Portfolio",
+    description: "My previous portfolio.",
+    category: "Front end",
+    image:
+      "https://res.cloudinary.com/flare-community/image/upload/v1640576980/static/moon_sg2s7s.png",
+    link: "https://portfolio-git-main-mtergel.vercel.app",
+    github: "https://github.com/mtergel/portfolio",
+    stack: ["Next.js", "Chakra UI", "fullPage.js", "Framer Motion"],
+  },
+  {
     title: "Fuyu",
     description: "Web based kanban board.",
     category: "Front end",
@@ -32,9 +42,10 @@ const cards = [
     category: "Chrome Extension",
     image:
       "https://res.cloudinary.com/flare-community/image/upload/v1640346512/static/kosame_ztujpi.png",
-    link: "https://github.com/mtergel/kosame-weather-app",
+    github: "https://github.com/mtergel/kosame-weather-app",
     stack: ["React", "Chakra UI", "DarkSky API"],
   },
+
   {
     title: "Senritsu",
     description: "Discover music using Spotify.",
@@ -44,6 +55,16 @@ const cards = [
     link: "https://senritsu.vercel.app/",
     github: "https://github.com/mtergel/senritsu",
     stack: ["Next.js", "Chakra UI", "Spotify API"],
+  },
+
+  {
+    title: "Amar Content Service",
+    description:
+      "Inhouse product information, inventory management, sales solution.",
+    category: "Front end",
+    image:
+      "https://res.cloudinary.com/flare-community/image/upload/v1640423928/static/acs_ixa2i6.png",
+    stack: ["React", "AWS Amplify"],
   },
   {
     title: "Railway",
@@ -178,8 +199,8 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
 
   return (
     <section>
-      <Container className="min-h-screen py-12 flex flex-col justify-center">
-        <h2 className="text-2xl mb-6 xl:pl-[112px]">
+      <Container className="min-h-screen pb-12 pt-12 md:pt-40 flex flex-col justify-center">
+        <h2 className="text-2xl mb-24 md:mb-6 xl:pl-[112px]">
           Here are a few projects I&apos;ve built.
         </h2>
 

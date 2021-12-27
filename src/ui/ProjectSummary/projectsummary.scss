@@ -32,7 +32,7 @@
 }
 
 .project-controls {
-  @apply order-3 z-10 mt-12 sm:mt-0 sm:order-1 lg:order-2;
+  @apply order-3 z-10 sm:mt-0 sm:order-1 lg:order-2;
   @media (min-width: 640px) {
     grid-column: 1;
     grid-row: 1;

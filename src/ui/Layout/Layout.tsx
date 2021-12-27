@@ -1,11 +1,11 @@
 import Container from "@/components/Container/Container";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
+import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
+import { useResponsive } from "context/responsive";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import { useResizeDetector } from "react-resize-detector";
-import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
-import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
 
 interface LayoutProps {}
 
@@ -14,25 +14,24 @@ const links: {
   title: string;
 }[] = [
   {
-    link: "/about",
+    link: "#about",
     title: "About",
   },
   {
-    link: "/project",
+    link: "#projects",
     title: "Projects",
   },
   {
-    link: "/contact",
+    link: "#contacts",
     title: "Contacts",
   },
 ];
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { width, ref } = useResizeDetector();
-
+  const isMobile = useResponsive();
   return (
-    <div className="flex flex-col" ref={ref}>
+    <div className="flex flex-col">
       <header className="top-bar">
         <Container id="nav-container" ref={containerRef}>
           <div className="flex items-center justify-between relative py-5 z-40">
@@ -49,16 +48,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </span>
               </a>
             </Link>
-            {width && width < 768 ? (
+            {isMobile ? (
               <HamburgerMenu containerRef={containerRef} />
             ) : (
               <nav className="h-12 flex items-center">
                 <ul className="nav-links">
                   {links.map((i) => (
                     <li key={i.link}>
-                      <Link href={i.link} passHref prefetch={false}>
-                        <a>{i.title}</a>
-                      </Link>
+                      <a href={i.link}>{i.title}</a>
                     </li>
                   ))}
                 </ul>
@@ -106,6 +103,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               className="cursor-pointer hover:text-white focus:text-white"
             >
               <FaLinkedinIn />
+            </a>
+            <a
+              href="https://firebasestorage.googleapis.com/v0/b/portfolio-ab064.appspot.com/o/Tergel's%20Resume.pdf?alt=media&token=be5ab162-5c1b-4fb9-8656-c5906033ded3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer hover:text-white focus:text-white"
+            >
+              Resume
             </a>
           </div>
         </Container>

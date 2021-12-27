@@ -2,6 +2,7 @@ import "@/styles/globals.scss";
 
 import { NextPageWithLayout } from "@/utils/types";
 import { IconContext } from "@react-icons/all-files/lib";
+import ResponsiveProvider from "context/responsive";
 import type { AppProps } from "next/app";
 
 type AppPropsWithLayout = AppProps & {
@@ -12,7 +13,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <IconContext.Provider value={{ className: "r-icon" }}>
-      {getLayout(<Component {...pageProps} />)}
+      <ResponsiveProvider>
+        {getLayout(<Component {...pageProps} />)}
+      </ResponsiveProvider>
     </IconContext.Provider>
   );
 }
