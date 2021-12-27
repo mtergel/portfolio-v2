@@ -1,7 +1,0 @@
-.info-panel {
-  @apply opacity-0 transition-opacity duration-700 text-xs bg-black text-white p-2;
-
-  &.info-panel-open {
-    @apply opacity-100;
-  }
-}

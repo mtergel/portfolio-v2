@@ -5,10 +5,12 @@ import { Canvas } from "@react-three/fiber";
 import clsx from "clsx";
 import Link from "next/link";
 import { Suspense, useState } from "react";
-import Model from "./Macbook";
-import Shapes from "./Shapes";
 import { animated } from "@react-spring/web";
 import { animated as three } from "@react-spring/three";
+import dynamic from "next/dynamic";
+
+const Model = dynamic(() => import("./Macbook"), { ssr: false });
+const Shapes = dynamic(() => import("./Shapes"), { ssr: false });
 
 interface AboutMeShortProps {}
 
@@ -19,11 +21,62 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
   const props = useSpring({ open: Number(open) });
 
   return (
-    <animated.div
+    <animated.section
       style={{ background: props.open.to([0, 1], ["#FBFBFD", "#EEEFFE"]) }}
       className="text-[#1D1D1F] w-full z-10 relative min-h-screen py-12 flex flex-col items-center justify-center"
     >
-      <Container className="flex flex-col-reverse gap-2 md:flex-row items-center justify-between w-full">
+      <Container className="flex flex-col gap-2 md:flex-row items-center justify-between w-full">
+        <div className="relative cursor-grab active:cursor-grabbing flex-shrink-0 h-[250px] w-full md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px]">
+          <Canvas dpr={[1, 2]} camera={{ fov: 35, position: [0, 0, -35] }}>
+            {/* @ts-ignore */}
+            <three.pointLight
+              position={[10, 10, -10]}
+              intensity={2}
+              color={props.open.to([0, 1], ["#FBFBFD", "#EEEFFE"])}
+            />
+            <Suspense fallback={null}>
+              <group
+                rotation={[0, Math.PI, 0]}
+                onClick={(e) => (e.stopPropagation(), setOpen(!open))}
+              >
+                <Model
+                  open={open}
+                  hinge={props.open.to([0, 1], [1.575, -0.425])}
+                  position={[0, 0, -1]}
+                />
+              </group>
+              <Shapes open={open} />
+              <OrbitControls
+                enableDamping
+                dampingFactor={0.05}
+                screenSpacePanning={false}
+                maxPolarAngle={Math.PI / 2}
+                enablePan={false}
+                enableZoom={false}
+              />
+              <Environment preset="city" />
+            </Suspense>
+            <ContactShadows
+              rotation-x={Math.PI / 2}
+              position={[0, -4.5, 0]}
+              opacity={0.4}
+              width={20}
+              height={20}
+              blur={2}
+              far={4.5}
+            />
+          </Canvas>
+          <div className="absolute bottom-0">
+            <span
+              className={clsx(
+                "opacity-0 transition-opacity duration-700 text-xs bg-black text-white p-2",
+                !open && "opacity-100"
+              )}
+            >
+              Click on the notebook
+            </span>
+          </div>
+        </div>
         <div className="w-full">
           <h2 className="text-2xl mb-6">A little bit about myself</h2>
           <div className="max-w-[calc(12rem+18vw)]">
@@ -51,56 +104,8 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
             </Link>
           </div>
         </div>
-        <div className="relative cursor-grab active:cursor-grabbing flex-shrink-0 h-[250px] w-full md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px]">
-          <Canvas dpr={[1, 2]} camera={{ fov: 35, position: [0, 0, -35] }}>
-            {/* @ts-ignore */}
-            <three.pointLight
-              position={[10, 10, -10]}
-              intensity={2}
-              color={props.open.to([0, 1], ["#FBFBFD", "#EEEFFE"])}
-            />
-            <Suspense fallback={null}>
-              <group
-                rotation={[0, Math.PI, 0]}
-                onClick={(e) => (e.stopPropagation(), setOpen(!open))}
-              >
-                <Model
-                  open={open}
-                  hinge={props.open.to([0, 1], [1.575, -0.425])}
-                  position={[0, 0, -1]}
-                />
-              </group>
-              <Shapes open={open} />
-              <OrbitControls
-                enableDamping
-                dampingFactor={0.05}
-                screenSpacePanning={false}
-                maxPolarAngle={Math.PI / 2}
-                autoRotate={!open}
-                autoRotateSpeed={0.3}
-                enablePan={false}
-                enableZoom={false}
-              />
-              <Environment preset="city" />
-            </Suspense>
-            <ContactShadows
-              rotation-x={Math.PI / 2}
-              position={[0, -4.5, 0]}
-              opacity={0.4}
-              width={20}
-              height={20}
-              blur={2}
-              far={4.5}
-            />
-          </Canvas>
-          <div className="absolute bottom-0">
-            <span className={clsx("info-panel", !open && "info-panel-open")}>
-              Click on the notebook
-            </span>
-          </div>
-        </div>
       </Container>
-    </animated.div>
+    </animated.section>
   );
 };
 
