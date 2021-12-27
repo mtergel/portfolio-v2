@@ -1,0 +1,32 @@
+.controller-button {
+  @apply p-3 relative text-current transition-colors duration-300;
+
+  &:hover,
+  &:focus {
+    @apply text-green-300;
+  }
+
+  &:not([disabled]):hover {
+    & .controls-label {
+      @apply visible opacity-100 transform -translate-y-[50%];
+    }
+  }
+
+  &:disabled {
+    @apply text-gray-800;
+  }
+
+  & .controls-label {
+    @apply hidden;
+    @media (min-width: 640px) {
+      @apply block absolute top-1/2 uppercase text-sm tracking-tighter font-bold left-[calc(100%+0.75rem)] px-2 pt-2 pb-1 rounded-full whitespace-nowrap invisible bg-gray-900 opacity-0 transform -translate-y-[30%];
+      transition: transform 150ms ease-in-out, opacity 300ms, visibility 300ms;
+    }
+    @media (min-width: 1024px) {
+      @apply -top-4 left-4 transform -translate-y-full;
+    }
+    @media (min-width: 1280px) {
+      @apply top-1/2 left-[calc(100%+0.75rem)] transform -translate-y-[30%];
+    }
+  }
+}

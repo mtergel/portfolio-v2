@@ -1,9 +1,10 @@
 import Container from "@/components/Container/Container";
+import { BiLinkExternal } from "@react-icons/all-files/bi/BiLinkExternal";
 import { BiSkipNext } from "@react-icons/all-files/bi/BiSkipNext";
 import { BiSkipPrevious } from "@react-icons/all-files/bi/BiSkipPrevious";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { useSprings } from "@react-spring/web";
 import clsx from "clsx";
-import Link from "next/link";
 import { useState } from "react";
 import { A11y, EffectFade, Swiper } from "swiper";
 import "swiper/css";
@@ -11,7 +12,6 @@ import "swiper/css/effect-fade";
 import { Swiper as ReactSwiper, SwiperSlide } from "swiper/react";
 import ProjectDeck from "../ProjectDeck/ProjectDeck";
 import ControllerButton from "./ControllerButton";
-import { BsArrowRight } from "@react-icons/all-files/bs/BsArrowRight";
 
 interface ProjectSummaryProps {}
 
@@ -22,7 +22,9 @@ const cards = [
     category: "Front end",
     image:
       "https://res.cloudinary.com/flare-community/image/upload/v1640348251/static/fuyu_e5kvus.png",
-    link: "/project/flare-community",
+    link: "https://fuyu-trello-clone.vercel.app/",
+    github: "https://github.com/mtergel/fuyu-trello-clone",
+    stack: ["React", "Redux"],
   },
   {
     title: "Kosame",
@@ -30,7 +32,8 @@ const cards = [
     category: "Chrome Extension",
     image:
       "https://res.cloudinary.com/flare-community/image/upload/v1640346512/static/kosame_ztujpi.png",
-    link: "/project/flare-community",
+    link: "https://github.com/mtergel/kosame-weather-app",
+    stack: ["React", "Chakra UI", "DarkSky API"],
   },
   {
     title: "Senritsu",
@@ -38,7 +41,9 @@ const cards = [
     category: "Front end",
     image:
       "https://res.cloudinary.com/flare-community/image/upload/v1640345489/static/senritsu1_fvroig.png",
-    link: "/project/flare-community",
+    link: "https://senritsu.vercel.app/",
+    github: "https://github.com/mtergel/senritsu",
+    stack: ["Next.js", "Chakra UI", "Spotify API"],
   },
   {
     title: "Railway",
@@ -46,23 +51,18 @@ const cards = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/flare-community/image/upload/v1640347935/static/Railway_gn1pih.png",
-    link: "/project/flare-community",
+    link: "https://railway.vercel.app/",
+    github: "https://github.com/mtergel/railway",
+    stack: ["Next.js", "Tailwind CSS", "Firebase", "Tiptap"],
   },
   {
     title: "Flare",
     description: "A information sharing community for developers.",
     category: "Full Stack",
     image: "https://flare-community.vercel.app/logo-dark.png",
-    link: "/project/flare-community",
-  },
-  {
-    title: "Amar Content Service",
-    description:
-      "Product information management, inventory, retailing solution.",
-    category: "Front end",
-    image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640423928/static/acs_ixa2i6.png",
-    link: "/project/flare-community",
+    link: "https://flare-community.vercel.app/",
+    github: "https://github.com/mtergel/flare",
+    stack: ["Next.js", "Tailwind CSS", "Supabase", "Unified"],
   },
 ];
 
@@ -178,9 +178,9 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
 
   return (
     <section>
-      <Container className="min-h-screen py-12 flex flex-col items-center justify-center">
-        <h2 className="text-2xl mb-24">
-          Here are a few projects I&apos;ve worked on recently
+      <Container className="min-h-screen py-12 flex flex-col justify-center">
+        <h2 className="text-2xl mb-6 xl:pl-[112px]">
+          Here are a few projects I&apos;ve built.
         </h2>
 
         <div className="project-summary-container">
@@ -191,6 +191,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                 type="button"
                 onClick={handleClickPrev}
                 className="prev-project"
+                label="Previous"
               >
                 <BiSkipPrevious className="h-7 w-7" />
               </ControllerButton>
@@ -198,6 +199,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                 type="button"
                 onClick={handleClickNext}
                 className="next-project"
+                label="Next"
               >
                 <BiSkipNext className="h-7 w-7" />
               </ControllerButton>
@@ -231,14 +233,46 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                           <p className="uppercase text-xs tracking-tighter font-bold mb-1">
                             {i.category}
                           </p>
-                          <Link href={i.link} passHref prefetch={false}>
-                            <a className="text-5xl font-bold tracking-tighter hover:underline">
-                              {i.title}
-                            </a>
-                          </Link>
+                          <h3 className="text-5xl font-bold tracking-tighter">
+                            {i.title}
+                          </h3>
                           <p className="tracking-tighter pt-2">
                             {i.description}
                           </p>
+                          <div className="mt-8 space-y-3">
+                            {i.stack && (
+                              <ul className="text-gray-400 tracking-tighter flex items-center flex-wrap gap-2">
+                                {i.stack.map((i) => (
+                                  <li key={i}>{i}</li>
+                                ))}
+                              </ul>
+                            )}
+                            <div className="flex items-center gap-4 text-gray-400">
+                              {i.github && (
+                                <a
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  href={i.github}
+                                  className="hover:text-green-300"
+                                  aria-label={`see repository of ${i.title}`}
+                                >
+                                  <FaGithub className="h-7 w-7" />
+                                </a>
+                              )}
+
+                              {i.link && (
+                                <a
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  href={i.link}
+                                  className="hover:text-green-300"
+                                  aria-label={`see demo of ${i.title}`}
+                                >
+                                  <BiLinkExternal className="h-7 w-7" />
+                                </a>
+                              )}
+                            </div>
+                          </div>
                         </div>
                       );
                     }}
@@ -272,12 +306,6 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
             </div>
           </div>
         </div>
-        <Link href="/project" passHref prefetch={false}>
-          <a className="mt-12 flex items-center space-x-2">
-            <span>See more</span>
-            {/* <BsArrowRight className="animate-bounceRight" /> */}
-          </a>
-        </Link>
       </Container>
     </section>
   );

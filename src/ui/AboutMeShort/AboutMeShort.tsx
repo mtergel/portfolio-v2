@@ -53,6 +53,8 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
                 maxPolarAngle={Math.PI / 2}
                 enablePan={false}
                 enableZoom={false}
+                autoRotate={!open}
+                autoRotateSpeed={0.5}
               />
               <Environment preset="city" />
             </Suspense>
