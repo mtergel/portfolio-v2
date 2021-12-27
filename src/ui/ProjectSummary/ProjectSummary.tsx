@@ -178,8 +178,8 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
 
   return (
     <section>
-      <Container className="min-h-screen py-12 flex flex-col items-center justify-center">
-        <h2 className="text-2xl mb-24">
+      <Container className="min-h-screen py-12 flex flex-col justify-center">
+        <h2 className="text-2xl mb-6 xl:pl-[112px]">
           Here are a few projects I&apos;ve built.
         </h2>
 
