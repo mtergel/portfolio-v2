@@ -21,7 +21,7 @@ const cards = [
     description: "My previous portfolio.",
     category: "Front end",
     image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640576980/static/moon_sg2s7s.png",
+      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/moon_sg2s7s_ym1fhs.webp",
     link: "https://portfolio-git-main-mtergel.vercel.app",
     github: "https://github.com/mtergel/portfolio",
     stack: ["Next.js", "Chakra UI", "fullPage.js", "Framer Motion"],
@@ -31,7 +31,7 @@ const cards = [
     description: "Web based kanban board.",
     category: "Front end",
     image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640348251/static/fuyu_e5kvus.png",
+      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/fuyu_e5kvus_l5jaoy.webp",
     link: "https://fuyu-trello-clone.vercel.app/",
     github: "https://github.com/mtergel/fuyu-trello-clone",
     stack: ["React", "Redux"],
@@ -41,7 +41,7 @@ const cards = [
     description: "See the Weather Forecast right in your browser.",
     category: "Chrome Extension",
     image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640346512/static/kosame_ztujpi.png",
+      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/kosame_ztujpi_rmtbny.webp",
     github: "https://github.com/mtergel/kosame-weather-app",
     stack: ["React", "Chakra UI", "DarkSky API"],
   },
@@ -51,7 +51,7 @@ const cards = [
     description: "Discover music using Spotify.",
     category: "Front end",
     image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640345489/static/senritsu1_fvroig.png",
+      "https://res.cloudinary.com/flare-community/image/upload/v1640604483/static/senritsu1_fvroig_z4sokq.jpg",
     link: "https://senritsu.vercel.app/",
     github: "https://github.com/mtergel/senritsu",
     stack: ["Next.js", "Chakra UI", "Spotify API"],
@@ -63,7 +63,7 @@ const cards = [
       "Inhouse product information, inventory management, sales solution.",
     category: "Front end",
     image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640423928/static/acs_ixa2i6.png",
+      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/acs_ixa2i6_mse9yk.webp",
     stack: ["React", "AWS Amplify"],
   },
   {
@@ -71,7 +71,7 @@ const cards = [
     description: "A simple note taking application inspired by the Notes app.",
     category: "Full Stack",
     image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640347935/static/Railway_gn1pih.png",
+      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/Railway_gn1pih_qjvzbq.webp",
     link: "https://railway.vercel.app/",
     github: "https://github.com/mtergel/railway",
     stack: ["Next.js", "Tailwind CSS", "Firebase", "Tiptap"],
@@ -80,7 +80,8 @@ const cards = [
     title: "Flare",
     description: "A information sharing community for developers.",
     category: "Full Stack",
-    image: "https://flare-community.vercel.app/logo-dark.png",
+    image:
+      "https://res.cloudinary.com/flare-community/image/upload/v1640604828/static/logo-dark_gifrow.webp",
     link: "https://flare-community.vercel.app/",
     github: "https://github.com/mtergel/flare",
     stack: ["Next.js", "Tailwind CSS", "Supabase", "Unified"],
