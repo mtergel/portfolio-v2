@@ -80,7 +80,7 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
         </div>
         <div className="w-full">
           <h2 className="text-2xl mb-6">A little bit about myself</h2>
-          <div className="max-w-[calc(12rem+18vw)]">
+          <div className="max-w-[calc(16rem+18vw)] sm:max-w-[calc(24rem+18vw)]">
             <p className="mb-4">
               Hello stranger, I am a developer based in Mongolia focused on
               creating interactive digital experiences on the web using modern
