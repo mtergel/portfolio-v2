@@ -38,55 +38,57 @@ const Home: NextPageWithLayout = () => {
       className="h-full overflow-x-hidden pt-[88px]"
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
     >
-      <Container className="min-h-[calc(100vh-88px)] flex items-center justify-between relative">
-        <div className="flex flex-col justify-center z-10">
-          <p>
-            Hi there <Twemoji emoji="👋" />, I&apos;m
-          </p>
-          <h1 className="text-8xl my-2 mb-4 font-black text-green-300">
-            Tergel
-          </h1>
-          <p>
-            Front end developer <Twemoji emoji="👨‍💻" />
-          </p>
-        </div>
-        <div className="hero-card-container">
-          <div className="hero-card">
-            <animated.div
-              className="card1"
-              style={{ transform: props.xy.to(trans1) }}
-            />
-            <animated.div
-              className="card2"
-              style={{ transform: props.xy.to(trans2) }}
-            />
-            <animated.div
-              className="card3"
-              style={{ transform: props.xy.to(trans3) }}
-            />
-            <animated.div
-              className="card4"
-              style={{ transform: props.xy.to(trans4) }}
-            />
-            <animated.div
-              className="card5"
-              style={{ transform: props.xy.to(trans5) }}
-            />
-            <animated.div
-              className="card6"
-              style={{ transform: props.xy.to(trans6) }}
-            />
-            <animated.div
-              className="card7"
-              style={{ transform: props.xy.to(trans7) }}
-            />
-            <animated.div
-              className="card8"
-              style={{ transform: props.xy.to(trans8) }}
-            />
+      <section>
+        <Container className="min-h-[calc(100vh-88px)] flex items-center justify-between relative">
+          <div className="flex flex-col justify-center z-10">
+            <p>
+              Hi there <Twemoji emoji="👋" />, I&apos;m
+            </p>
+            <h1 className="text-8xl my-2 mb-4 font-black text-green-300">
+              Tergel
+            </h1>
+            <p>
+              Front end developer <Twemoji emoji="👨‍💻" />
+            </p>
           </div>
-        </div>
-      </Container>
+          <div className="hero-card-container">
+            <div className="hero-card">
+              <animated.div
+                className="card1"
+                style={{ transform: props.xy.to(trans1) }}
+              />
+              <animated.div
+                className="card2"
+                style={{ transform: props.xy.to(trans2) }}
+              />
+              <animated.div
+                className="card3"
+                style={{ transform: props.xy.to(trans3) }}
+              />
+              <animated.div
+                className="card4"
+                style={{ transform: props.xy.to(trans4) }}
+              />
+              <animated.div
+                className="card5"
+                style={{ transform: props.xy.to(trans5) }}
+              />
+              <animated.div
+                className="card6"
+                style={{ transform: props.xy.to(trans6) }}
+              />
+              <animated.div
+                className="card7"
+                style={{ transform: props.xy.to(trans7) }}
+              />
+              <animated.div
+                className="card8"
+                style={{ transform: props.xy.to(trans8) }}
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
 
       <AboutMeShort />
 
