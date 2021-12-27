@@ -1,21 +1,20 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import * as THREE from "three";
-
+import { Group, Mesh, lerp } from "three-exports";
 interface ShapesProps {
   open: boolean;
 }
 
 const Shapes: React.FC<ShapesProps> = ({ open }) => {
-  const group = useRef<THREE.Group>();
-  const boxRef = useRef<THREE.Mesh>();
-  const pyramidRef = useRef<THREE.Mesh>();
+  const group = useRef<Group>();
+  const boxRef = useRef<Mesh>();
+  const pyramidRef = useRef<Mesh>();
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
 
     if (group.current) {
-      group.current.position.y = THREE.MathUtils.lerp(
+      group.current.position.y = lerp(
         group.current.position.y,
         open ? (-2 + Math.sin(t)) / 2 : -3.5,
         0.1
@@ -25,7 +24,7 @@ const Shapes: React.FC<ShapesProps> = ({ open }) => {
       }
 
       if (boxRef.current) {
-        boxRef.current.rotation.x = THREE.MathUtils.lerp(
+        boxRef.current.rotation.x = lerp(
           boxRef.current.rotation.x,
           open ? Math.sin(t / 2) / 2 + 0.5 : 0,
           0.1
@@ -33,7 +32,7 @@ const Shapes: React.FC<ShapesProps> = ({ open }) => {
       }
 
       if (pyramidRef.current) {
-        pyramidRef.current.rotation.x = THREE.MathUtils.lerp(
+        pyramidRef.current.rotation.x = lerp(
           pyramidRef.current.rotation.x,
           open ? Math.cos(t / 2) / 2 + 0.5 : 0,
           0.1

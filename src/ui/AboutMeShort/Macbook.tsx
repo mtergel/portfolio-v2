@@ -7,30 +7,36 @@ import { a as three } from "@react-spring/three";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import React, { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
 import { GLTF } from "three-stdlib";
+import {
+  Mesh,
+  Vector3,
+  lerp,
+  MeshStandardMaterial,
+  Group,
+} from "three-exports";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cube008: THREE.Mesh;
-    Cube008_1: THREE.Mesh;
-    Cube008_2: THREE.Mesh;
-    keyboard: THREE.Mesh;
-    Cube002: THREE.Mesh;
-    Cube002_1: THREE.Mesh;
-    touchbar: THREE.Mesh;
+    Cube008: Mesh;
+    Cube008_1: Mesh;
+    Cube008_2: Mesh;
+    keyboard: Mesh;
+    Cube002: Mesh;
+    Cube002_1: Mesh;
+    touchbar: Mesh;
   };
   materials: {
-    aluminium: THREE.MeshStandardMaterial;
-    ["matte.001"]: THREE.MeshStandardMaterial;
-    ["screen.001"]: THREE.MeshStandardMaterial;
-    keys: THREE.MeshStandardMaterial;
-    trackpad: THREE.MeshStandardMaterial;
-    touchbar: THREE.MeshStandardMaterial;
+    aluminium: MeshStandardMaterial;
+    ["matte.001"]: MeshStandardMaterial;
+    ["screen.001"]: MeshStandardMaterial;
+    keys: MeshStandardMaterial;
+    trackpad: MeshStandardMaterial;
+    touchbar: MeshStandardMaterial;
   };
 };
 
-const vec = new THREE.Vector3();
+const vec = new Vector3();
 // open ? -24 : -32
 
 type props = JSX.IntrinsicElements["group"];
@@ -40,7 +46,7 @@ interface MacbookProps {
 }
 
 const Macbook: React.FC<MacbookProps & props> = ({ open, hinge, ...rest }) => {
-  const group = useRef<THREE.Group>();
+  const group = useRef<Group>();
   const { nodes, materials } = useGLTF("/assets/mac-draco.glb") as GLTFResult;
 
   // Take care of cursor state on hover
@@ -53,22 +59,22 @@ const Macbook: React.FC<MacbookProps & props> = ({ open, hinge, ...rest }) => {
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     if (group.current) {
-      group.current.rotation.x = THREE.MathUtils.lerp(
+      group.current.rotation.x = lerp(
         group.current.rotation.x,
         open ? Math.cos(t / 2) / 8 + 0.25 : 0,
         0.1
       );
-      group.current.rotation.y = THREE.MathUtils.lerp(
+      group.current.rotation.y = lerp(
         group.current.rotation.y,
         open ? Math.sin(t / 4) / 4 : 0,
         0.1
       );
-      group.current.rotation.z = THREE.MathUtils.lerp(
+      group.current.rotation.z = lerp(
         group.current.rotation.z,
         open ? Math.sin(t / 4) / 4 : 0,
         0.1
       );
-      group.current.position.y = THREE.MathUtils.lerp(
+      group.current.position.y = lerp(
         group.current.position.y,
         open ? (-2 + Math.sin(t)) / 3 : -4.3,
         0.1
