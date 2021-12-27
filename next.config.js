@@ -8,4 +8,4 @@ module.exports = withBundleAnalyzer({
   images: {
     domains: ["twemoji.maxcdn.com"],
   },
-};
+});
