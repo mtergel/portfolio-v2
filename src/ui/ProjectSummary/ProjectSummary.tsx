@@ -250,6 +250,9 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                             <div className="flex items-center gap-4 text-gray-400">
                               {i.github && (
                                 <a
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  href={i.github}
                                   className="hover:text-green-300"
                                   aria-label={`see repository of ${i.title}`}
                                 >
@@ -259,6 +262,9 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
 
                               {i.link && (
                                 <a
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  href={i.link}
                                   className="hover:text-green-300"
                                   aria-label={`see demo of ${i.title}`}
                                 >
