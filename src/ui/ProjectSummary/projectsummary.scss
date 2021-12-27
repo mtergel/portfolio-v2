@@ -14,7 +14,7 @@
 }
 
 .project-carousel {
-  @apply order-2 sm:order-3 sm:col-span-2;
+  @apply order-2 sm:order-3 sm:col-span-2 sm:pb-4 lg:pb-0;
   @media (min-width: 1024px) {
     grid-row: auto;
     grid-column: auto;
