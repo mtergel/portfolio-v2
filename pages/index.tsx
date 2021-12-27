@@ -159,7 +159,7 @@ const Home: NextPageWithLayout<InferGetStaticPropsType<typeof getStaticProps>> =
             href={githubProps.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-green-300 focus:text-green-300 text-gray-500 transition-colors flex flex-col items-center justify-center gap-1 text-sm text-center pb-6"
+            className="hover:text-green-300 focus:text-green-300 text-gray-400 transition-colors flex flex-col items-center justify-center gap-1 text-sm text-center pb-6"
           >
             <p>Designed & Built by Tergel</p>
             <div className="flex items-center space-x-4">

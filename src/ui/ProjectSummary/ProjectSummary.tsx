@@ -51,7 +51,7 @@ const cards = [
     description: "Discover music using Spotify.",
     category: "Front end",
     image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640604483/static/senritsu1_fvroig_z4sokq.jpg",
+      "https://res.cloudinary.com/flare-community/image/upload/v1640605471/static/senritsu1_fvroig_nljcla.webp",
     link: "https://senritsu.vercel.app/",
     github: "https://github.com/mtergel/senritsu",
     stack: ["Next.js", "Chakra UI", "Spotify API"],

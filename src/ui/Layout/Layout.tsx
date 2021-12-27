@@ -83,12 +83,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   </span>
                 </a>
               </Link>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-400">
                 Front end developer. Personal Portfolio.
               </p>
             </div>
           </div>
-          <div className="text-gray-500 flex items-center space-x-6">
+          <div className="text-gray-400 flex items-center space-x-6">
             <a
               href="https://github.com/mtergel"
               target="_blank"
