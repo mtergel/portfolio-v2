@@ -26,8 +26,9 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
     <animated.section
       style={{ background: props.open.to([0, 1], ["#FBFBFD", "#EEEFFE"]) }}
       className="text-[#1D1D1F] w-full z-10 relative min-h-screen py-12 flex flex-col items-center justify-center"
-      id="#about"
+      id="about"
     >
+      {/* <a id="#about" href="#about" className="sr-only" /> */}
       <Container className="flex flex-col gap-2 md:flex-row items-center justify-between w-full">
         <div className="relative cursor-grab mb-4 md:mb-0 active:cursor-grabbing flex-shrink-0 h-[250px] w-full md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px]">
           <Canvas

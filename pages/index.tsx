@@ -134,7 +134,7 @@ const Home: NextPageWithLayout<InferGetStaticPropsType<typeof getStaticProps>> =
 
         <ProjectSummary />
 
-        <section>
+        <section id="contacts">
           <div className="min-h-screen flex items-center">
             <Container className="contact-info">
               <div className="flex flex-col items-center justify-center text-center">

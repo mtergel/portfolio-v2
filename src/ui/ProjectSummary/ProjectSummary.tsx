@@ -200,7 +200,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
   return (
     <section>
       <Container className="min-h-screen pb-12 pt-12 md:pt-40 flex flex-col justify-center">
-        <h2 className="text-2xl mb-24 md:mb-6 xl:pl-[112px]">
+        <h2 id="projects" className="text-2xl mb-24 md:mb-6 xl:pl-[112px]">
           Here are a few projects I&apos;ve built.
         </h2>
 

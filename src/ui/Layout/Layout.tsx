@@ -30,6 +30,7 @@ const links: {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useResponsive();
+
   return (
     <div className="flex flex-col">
       <header className="top-bar">
