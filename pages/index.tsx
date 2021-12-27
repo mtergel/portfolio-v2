@@ -140,9 +140,9 @@ const Home: NextPageWithLayout<InferGetStaticPropsType<typeof getStaticProps>> =
               <div className="flex flex-col items-center justify-center text-center">
                 <h2 className="text-4xl mb-4">Get In Touch</h2>
                 <span className="max-w-sm">
-                  I&apos;m looking new opportunities, my inbox is always open.
-                  Whether you have a question or just want to say hi, I&apos;ll
-                  try my best to get back to you!
+                  I&apos;m looking new opportunities. Whether you have a
+                  question or just want to say hi, I&apos;ll try my best to get
+                  back to you!
                 </span>
                 <a
                   className="mt-4 rounded border border-green-300 text-green-300 px-5 py-2"
