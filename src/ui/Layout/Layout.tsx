@@ -94,6 +94,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-pointer hover:text-white focus:text-white"
+              aria-label="github"
             >
               <FaGithub />
             </a>
@@ -102,6 +103,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-pointer hover:text-white focus:text-white"
+              aria-label="LinkedIn"
             >
               <FaLinkedinIn />
             </a>

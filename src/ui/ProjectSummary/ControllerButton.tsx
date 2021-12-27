@@ -16,7 +16,12 @@ const ControllerButton = forwardRef<Ref, ControllerButtonProps>(
     const { className, label, children, ...rest } = props;
 
     return (
-      <button ref={ref} className="controller-button" {...rest}>
+      <button
+        ref={ref}
+        className="controller-button"
+        aria-label={label}
+        {...rest}
+      >
         {children}
 
         <span className="controls-label">{label}</span>
