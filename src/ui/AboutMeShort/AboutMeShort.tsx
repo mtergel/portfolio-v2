@@ -1,13 +1,12 @@
 import Container from "@/components/Container/Container";
 import { useSpring } from "@react-spring/core";
+import { animated as three } from "@react-spring/three";
+import { animated } from "@react-spring/web";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import clsx from "clsx";
-import Link from "next/link";
-import { Suspense, useState } from "react";
-import { animated } from "@react-spring/web";
-import { animated as three } from "@react-spring/three";
 import dynamic from "next/dynamic";
+import { Suspense, useState } from "react";
 
 const Model = dynamic(() => import("./Macbook"), { ssr: false });
 const Shapes = dynamic(() => import("./Shapes"), { ssr: false });
@@ -100,10 +99,6 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
               React, Next.js, CSS, SCSS, Tailwind, Framer Motion, CSS-in-JS,
               Firebase, Supabase, Prisma...
             </p>
-
-            <Link href="/about" passHref prefetch={false}>
-              <a className="text-[#0066CC]">See more</a>
-            </Link>
           </div>
         </div>
       </Container>
