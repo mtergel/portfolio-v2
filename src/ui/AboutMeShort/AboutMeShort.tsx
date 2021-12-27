@@ -91,7 +91,7 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
               I graduated with a Bachelor&apos;s degree in networking in 2020.
               While searching for a job I took a React Course — turns out I am
               passionate about coding. I’ve had the privilege of working at a
-              start-up as an engineer..
+              start-up as an engineer.
             </p>
             <h3 className="text-lg mb-2">Stack</h3>
             <p className="mb-4">
