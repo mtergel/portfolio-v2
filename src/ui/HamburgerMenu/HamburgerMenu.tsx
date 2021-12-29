@@ -18,15 +18,15 @@ const links: {
     title: "Home",
   },
   {
-    link: "/about",
+    link: "#about",
     title: "About",
   },
   {
-    link: "/project",
+    link: "#projects",
     title: "Projects",
   },
   {
-    link: "/contact",
+    link: "#contacts",
     title: "Contacts",
   },
 ];
@@ -38,6 +38,7 @@ const links: {
  */
 const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
   const [open, setOpen] = useState(false);
+  const onClose = () => setOpen(false);
   const toggleOpen = () => {
     setOpen((prev) => !prev);
   };
@@ -86,9 +87,9 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
                 <ul className="nav-inner-list">
                   {links.map((i) => (
                     <li key={i.link}>
-                      <Link href={i.link} passHref prefetch={false}>
-                        <a>{i.title}</a>
-                      </Link>
+                      <a href={i.link} onClick={onClose}>
+                        {i.title}
+                      </a>
                     </li>
                   ))}
                 </ul>

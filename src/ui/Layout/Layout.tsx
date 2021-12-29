@@ -108,7 +108,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <FaLinkedinIn />
             </a>
             <a
-              href="https://firebasestorage.googleapis.com/v0/b/portfolio-ab064.appspot.com/o/Tergel's%20Resume.pdf?alt=media&token=be5ab162-5c1b-4fb9-8656-c5906033ded3"
+              href="https://drive.google.com/file/d/1SYRqtGmf7uwiKEwAXplrYFXapX4bu5VG/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-pointer hover:text-white focus:text-white"
