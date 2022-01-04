@@ -3910,6 +3910,11 @@ swiper@^7.3.4:
     dom7 "^4.0.2"
     ssr-window "^4.0.2"
 
+swr@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-1.1.2.tgz#9f3de2541931fccf03c48f322f1fc935a7551612"
+  integrity sha512-UsM0eo5T+kRPyWFZtWRx2XR5qzohs/LS4lDC0GCyLpCYFmsfTk28UCVDbOE9+KtoXY4FnwHYiF+ZYEU3hnJ1lQ==
+
 table@^6.7.3:
   version "6.7.5"
   resolved "https://registry.yarnpkg.com/table/-/table-6.7.5.tgz#f04478c351ef3d8c7904f0e8be90a1b62417d238"

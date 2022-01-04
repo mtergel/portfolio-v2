@@ -25,6 +25,7 @@
     "react-resize-detector": "^6.7.7",
     "sass": "^1.45.1",
     "swiper": "^7.3.4",
+    "swr": "^1.1.2",
     "three": "^0.136.0",
     "three-stdlib": "^2.6.2",
     "twemoji": "^13.1.0"
