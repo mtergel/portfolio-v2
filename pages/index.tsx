@@ -78,7 +78,9 @@ const Home: NextPageWithLayout<
   return (
     <div
       className="h-full overflow-x-hidden pt-[88px]"
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+      onMouseMove={({ clientX: x, clientY: y }) =>
+        set.start({ xy: calc(x, y) })
+      }
     >
       <section>
         <Container className="min-h-[calc(100vh-88px)] flex items-center justify-between relative">
