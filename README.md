@@ -1,6 +1,6 @@
-## About 👨🏻‍💻
+## About 
 
-My personal portfolio project.
+My personal portfolio project 👨‍💻
 
 ## Running locally
 
