@@ -27,16 +27,6 @@ const cards = [
     stack: ["Next.js", "Chakra UI", "fullPage.js", "Framer Motion"],
   },
   {
-    title: "Fuyu",
-    description: "Web based kanban board.",
-    category: "Front end",
-    image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/fuyu_e5kvus_l5jaoy.webp",
-    link: "https://fuyu-trello-clone.vercel.app/",
-    github: "https://github.com/mtergel/fuyu-trello-clone",
-    stack: ["React", "Redux"],
-  },
-  {
     title: "Kosame",
     description: "See the Weather Forecast right in your browser.",
     category: "Chrome Extension",

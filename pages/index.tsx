@@ -9,6 +9,8 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { BiStar } from "@react-icons/all-files/bi/BiStar";
 import { GoRepoForked } from "@react-icons/all-files/go/GoRepoForked";
 import CurrentPlaying from "@/components/CurrentPlaying/CurrentPlaying";
+import { FiVolume2 } from "@react-icons/all-files/fi/FiVolume2";
+import { useRef } from "react";
 
 interface HomePageProps {
   starCount: number;
@@ -50,6 +52,10 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async (
 const Home: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
 > = (githubProps) => {
+  const audioTune = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== "undefined" ? new Audio("/tergel.mp3") : undefined
+  );
+
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
     config: { mass: 10, tension: 550, friction: 140 },
@@ -88,12 +94,25 @@ const Home: NextPageWithLayout<
             <p>
               Hi there <Twemoji emoji="👋" />, I&apos;m
             </p>
-            <h1 className="text-8xl my-2 mb-4 font-black text-green-300">
+
+            <h1 className="text-6xl my-2 mb-4 font-black text-green-300">
               Tergel
             </h1>
-            <p>
-              Front end developer <Twemoji emoji="👨‍💻" />
-            </p>
+
+            <div>
+              <div className="flex items-center justify-start gap-2">
+                <button onClick={() => audioTune.current!.play()}>
+                  <FiVolume2
+                    aria-label="speaker"
+                    className="h-6 w-6 text-gray-400"
+                  />
+                </button>
+                <span className="text-gray-400">teer·​keel</span>
+              </div>
+              <div className="mt-1">
+                the phase of the moon in which its whole disc is illuminated.
+              </div>
+            </div>
           </div>
           <div className="hero-card-container">
             <div className="hero-card">
