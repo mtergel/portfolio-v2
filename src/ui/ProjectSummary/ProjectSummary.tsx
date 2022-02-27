@@ -17,26 +17,6 @@ interface ProjectSummaryProps {}
 
 const cards = [
   {
-    title: "Portfolio",
-    description: "My previous portfolio.",
-    category: "Front end",
-    image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/moon_sg2s7s_ym1fhs.webp",
-    link: "https://portfolio-git-main-mtergel.vercel.app",
-    github: "https://github.com/mtergel/portfolio",
-    stack: ["Next.js", "Chakra UI", "fullPage.js", "Framer Motion"],
-  },
-  {
-    title: "Kosame",
-    description: "See the Weather Forecast right in your browser.",
-    category: "Chrome Extension",
-    image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/kosame_ztujpi_rmtbny.webp",
-    github: "https://github.com/mtergel/kosame-weather-app",
-    stack: ["React", "Chakra UI", "DarkSky API"],
-  },
-
-  {
     title: "Senritsu",
     description: "Discover music using Spotify.",
     category: "Front end",
@@ -50,21 +30,11 @@ const cards = [
   {
     title: "Amar Content Service",
     description:
-      "Inhouse product information, inventory management, sales solution.",
-    category: "Front end",
+      "Product information, inventory management system with over 15,000+ unique products and over 120+ stores nationwide used by the largest bookstore in the nation.",
+    category: "Front End",
     image:
       "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/acs_ixa2i6_mse9yk.webp",
     stack: ["React", "AWS Amplify"],
-  },
-  {
-    title: "Railway",
-    description: "A simple note taking application inspired by the Notes app.",
-    category: "Full Stack",
-    image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/Railway_gn1pih_qjvzbq.webp",
-    link: "https://railway.vercel.app/",
-    github: "https://github.com/mtergel/railway",
-    stack: ["Next.js", "Tailwind CSS", "Firebase", "Tiptap"],
   },
   {
     title: "Flare",
@@ -75,6 +45,16 @@ const cards = [
     link: "https://flare-community.vercel.app/",
     github: "https://github.com/mtergel/flare",
     stack: ["Next.js", "Tailwind CSS", "Supabase", "Unified"],
+  },
+  {
+    title: "Visualizer",
+    description: "An sorting, pathfinding algorithm visualizer.",
+    category: "Front end",
+    image:
+      "https://res.cloudinary.com/flare-community/image/upload/v1645961912/static/visualizer_bhwskm.png",
+    link: "https://visualizer-iota.vercel.app/",
+    github: "https://github.com/mtergel/visualizer",
+    stack: ["Next.js", "Tailwind CSS"],
   },
 ];
 
@@ -191,9 +171,14 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
   return (
     <section>
       <Container className="min-h-screen pb-12 pt-12 md:pt-40 flex flex-col justify-center">
-        <h2 id="projects" className="text-2xl mb-24 md:mb-6 xl:pl-[112px]">
-          Here are a few projects I&apos;ve built.
-        </h2>
+        <div className="mb-40 xl:pl-[112px]">
+          <h2 id="projects" className="text-2xl">
+            Here are a few projects I&apos;ve built.
+          </h2>
+          <p className="mt-1 text-green-300">
+            You can drag around the cards. Flick them to advance to next slide.
+          </p>
+        </div>
 
         <div className="project-summary-container">
           <div className="project-controls">
@@ -245,7 +230,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                           <p className="uppercase text-xs tracking-tighter font-bold mb-1">
                             {i.category}
                           </p>
-                          <h3 className="text-5xl font-bold tracking-tighter">
+                          <h3 className="text-5xl font-bold tracking-tighter text-green-300">
                             {i.title}
                           </h3>
                           <p className="tracking-tighter pt-2">
@@ -259,16 +244,17 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                                 ))}
                               </ul>
                             )}
-                            <div className="flex items-center gap-4 text-gray-400">
+                            <div className="flex items-center gap-2 text-gray-400">
                               {i.github && (
                                 <a
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   href={i.github}
-                                  className="hover:text-green-300"
+                                  className="rounded border px-2 py-1.5 border-gray-700 inline-flex items-center gap-2 transition-colors hover:text-green-300 hover:bg-green-300/10"
                                   aria-label={`see repository of ${i.title}`}
                                 >
-                                  <FaGithub className="h-7 w-7" />
+                                  <FaGithub className="h-5 w-5" />
+                                  <span>Source</span>
                                 </a>
                               )}
 
@@ -277,10 +263,11 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   href={i.link}
-                                  className="hover:text-green-300"
+                                  className="rounded border px-2 py-1.5 border-gray-700 inline-flex items-center gap-2 transition-colors hover:text-green-300 hover:bg-green-300/10"
                                   aria-label={`see demo of ${i.title}`}
                                 >
-                                  <BiLinkExternal className="h-7 w-7" />
+                                  <BiLinkExternal className="h-5 w-5" />
+                                  <span>Demo</span>
                                 </a>
                               )}
                             </div>
