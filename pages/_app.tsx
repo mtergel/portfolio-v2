@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           description: "My personal portfolio. 🌙",
           images: [
             {
-              url: "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/moon_sg2s7s_ym1fhs.webp",
+              url: "https://res.cloudinary.com/flare-community/image/upload/v1646014576/static/portfolio_udobop.png",
               width: 632,
               height: 632,
               alt: "Moon",
