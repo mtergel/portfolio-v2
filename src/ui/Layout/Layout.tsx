@@ -59,6 +59,36 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                       <a href={i.link}>{i.title}</a>
                     </li>
                   ))}
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1EqWLID31dnuxydLmfgSosSRTpzmmft3u/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer hover:text-white focus:text-white"
+                    >
+                      Resume
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/mtergel"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaGithub />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/tergel-munkhdelger-303977174"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer hover:text-white focus:text-white"
+                      aria-label="LinkedIn"
+                    >
+                      <FaLinkedinIn />
+                    </a>
+                  </li>
                 </ul>
               </nav>
             )}

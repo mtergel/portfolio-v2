@@ -92,13 +92,12 @@ const Home: NextPageWithLayout<
         <Container className="min-h-[calc(100vh-88px)] flex items-center justify-between relative">
           <div className="flex flex-col justify-center z-10">
             <p>
-              Hi there <Twemoji emoji="👋" />, I&apos;m
+              Hi there <Twemoji emoji="👋" />, My name is
             </p>
 
             <h1 className="text-6xl my-2 mb-4 font-black text-green-300">
               Tergel
             </h1>
-
             <div>
               <div className="flex items-center justify-start gap-2">
                 <button onClick={() => audioTune.current!.play()}>
