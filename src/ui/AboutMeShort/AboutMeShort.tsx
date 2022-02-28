@@ -16,11 +16,9 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
             <p>
               Hello stranger, My name is Tergel. I was born in 1998 and grew up
               in Mongolia. I have been coding since 2018 in a wide range of
-              languages and technologies. For example C++, Python, Javascript,
-              Assembler (8086). I&apos;ve also studied some electrical stuff and
-              made a white line following robot with a counter. Lately, I&apos;m
-              interested in web technologies, my current stack consists of
-              Javascript, TypeScript, React, Next.js, and more.
+              languages and technologies. Lately, I&apos;m interested in web
+              technologies, my current stack consists of Javascript, TypeScript,
+              React, Next.js, and more.
             </p>
             <p className="my-2">
               In 2020 I graduated from the{" "}
@@ -36,8 +34,8 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
             </p>
             <p>
               A forever student of the game. Willing to learn and eager to work
-              on projects that will make an impact. Sometimes I write about some
-              stuff I&apos;ve learned over at{" "}
+              on projects that will help others. When I&apos;m not coding I
+              write about some stuff I&apos;ve learned over at{" "}
               <a
                 href="https://flare-community.vercel.app/tergelm"
                 target="_blank"
@@ -46,15 +44,12 @@ const AboutMeShort: React.FC<AboutMeShortProps> = () => {
               >
                 Flare
               </a>
-              .
+              . I enjoy playing guitar, reading, and drawing.{" "}
+              <Twemoji emoji="🎨" />
             </p>
-            <p>
+            <p className="mt-4">
               Currently, I&apos;m focused on building our platform at Amar
               Content Service.
-            </p>
-            <p>
-              When I&apos;m not coding, I enjoy playing guitar, reading, and
-              drawing. <Twemoji emoji="🎨" />
             </p>
           </div>
         </div>
