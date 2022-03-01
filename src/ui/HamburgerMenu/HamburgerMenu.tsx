@@ -116,7 +116,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ containerRef }) => {
                   </li>
                   <li>
                     <a
-                      href="https://drive.google.com/file/d/1EqWLID31dnuxydLmfgSosSRTpzmmft3u/view?usp=sharing"
+                      href="https://drive.google.com/file/d/1h9Dcc627dLgw49nHsg79XsEuVdFC4S5x/view?usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cursor-pointer hover:text-white focus:text-white"
