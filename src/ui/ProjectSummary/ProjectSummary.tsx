@@ -56,6 +56,15 @@ const cards = [
     github: "https://github.com/mtergel/visualizer",
     stack: ["Next.js", "Tailwind CSS"],
   },
+  {
+    title: "Internom",
+    description: "Mongolia's largest book eCommerce store.",
+    category: "Front end",
+    image:
+      "https://res.cloudinary.com/flare-community/image/upload/v1668408004/static/internom_s2qv6a.png",
+    link: "https://internom.mn/",
+    stack: ["Next.js", "Tailwind CSS", "AWS"],
+  },
 ];
 
 const to = (i: number, active: boolean) => {
