@@ -61,7 +61,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   ))}
                   <li>
                     <a
-                      href="https://drive.google.com/file/d/1h9Dcc627dLgw49nHsg79XsEuVdFC4S5x/view?usp=sharing"
+                      href="https://drive.google.com/file/d/1zOD6kKmfLGVv84YTGniEyUvXWqWbQAIh/view?usp=share_link"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cursor-pointer hover:text-white focus:text-white"
