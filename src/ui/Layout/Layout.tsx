@@ -98,53 +98,61 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="min-h-screen flex-grow">{children}</main>
       <footer className="border-t border-t-gray-700 border-opacity-80 pt-8 pb-6">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="col-span-1 mb-4 md:col-span-3 space-y-2">
-              <Link href="/" passHref>
-                <a className="flex items-center space-x-2" aria-label="Home">
-                  <Image
-                    src="/assets/moon.svg"
-                    alt="logo"
-                    width={36}
-                    height={36}
-                  />
-                  <span className="font-medium text-2xl tracking-tighter">
-                    Tergel
-                  </span>
-                </a>
-              </Link>
-              <p className="text-sm text-gray-400">
-                Front end developer. Personal Portfolio.
-              </p>
+          <div className="flex flex-col gap-4 sm:flex-row items-center justify-between w-full">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="col-span-1 mb-4 md:col-span-3 space-y-2">
+                <Link href="/" passHref>
+                  <a className="flex items-center space-x-2" aria-label="Home">
+                    <Image
+                      src="/assets/moon.svg"
+                      alt="logo"
+                      width={36}
+                      height={36}
+                    />
+                    <span className="font-medium text-2xl tracking-tighter">
+                      Tergel
+                    </span>
+                  </a>
+                </Link>
+                <p className="text-sm text-gray-400">Personal Portfolio.</p>
+
+                <div className="text-gray-400 flex items-center space-x-6">
+                  <a
+                    href="https://github.com/mtergel"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer hover:text-white focus:text-white"
+                    aria-label="github"
+                  >
+                    <FaGithub />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/tergel-munkhdelger-303977174"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer hover:text-white focus:text-white"
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedinIn />
+                  </a>
+                  <a
+                    href="https://drive.google.com/file/d/1h9Dcc627dLgw49nHsg79XsEuVdFC4S5x/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer hover:text-white focus:text-white"
+                  >
+                    Resume
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="text-gray-400 flex items-center space-x-6">
-            <a
-              href="https://github.com/mtergel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-pointer hover:text-white focus:text-white"
-              aria-label="github"
-            >
-              <FaGithub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/tergel-munkhdelger-303977174"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-pointer hover:text-white focus:text-white"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedinIn />
-            </a>
-            <a
-              href="https://drive.google.com/file/d/1h9Dcc627dLgw49nHsg79XsEuVdFC4S5x/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-pointer hover:text-white focus:text-white"
-            >
-              Resume
-            </a>
+            <div className="text-gray-400 font-light text-sm flex items-center justify-end">
+              <em>
+                The moon in the water;
+                <br /> Broken and broken again,
+                <br /> Still it is there
+              </em>
+            </div>
           </div>
         </Container>
       </footer>

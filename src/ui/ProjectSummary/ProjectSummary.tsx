@@ -26,23 +26,13 @@ const cards = [
     github: "https://github.com/mtergel/senritsu",
     stack: ["Next.js", "Chakra UI", "Spotify API"],
   },
-
-  {
-    title: "Amar Content Service",
-    description:
-      "Product information, inventory management system with over 15,000+ unique products and over 120+ stores nationwide used by the largest bookstore in the nation.",
-    category: "Front End",
-    image:
-      "https://res.cloudinary.com/flare-community/image/upload/v1640604711/static/acs_ixa2i6_mse9yk.webp",
-    stack: ["React", "AWS Amplify"],
-  },
   {
     title: "Flare",
-    description: "A information sharing community for developers.",
+    description:
+      "A information sharing community for developers similar to dev.to",
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/flare-community/image/upload/v1640604828/static/logo-dark_gifrow.webp",
-    link: "https://flare-community.vercel.app/",
     github: "https://github.com/mtergel/flare",
     stack: ["Next.js", "Tailwind CSS", "Supabase", "Unified"],
   },
@@ -180,7 +170,7 @@ const ProjectSummary: React.FC<ProjectSummaryProps> = () => {
   return (
     <section>
       <Container className="min-h-screen pb-12 pt-12 md:pt-40 flex flex-col justify-center">
-        <div className="mb-40 xl:pl-[112px]">
+        <div className="mb-40 flex flex-col items-center justify-center xl:pl-[112px]">
           <h2 id="projects" className="text-2xl">
             Here are a few projects I&apos;ve built.
           </h2>
